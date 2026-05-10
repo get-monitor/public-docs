@@ -1,0 +1,4312 @@
+{
+  "openapi": "3.0.0",
+  "paths": {
+    "/api": {
+      "get": {
+        "operationId": "AppController_getHello",
+        "parameters": [],
+        "responses": { "200": { "description": "" } },
+        "tags": ["App"]
+      }
+    },
+    "/health": {
+      "get": {
+        "operationId": "AppController_healthCheck",
+        "parameters": [],
+        "responses": { "200": { "description": "" } },
+        "tags": ["App"]
+      }
+    },
+    "/api/v1/organizations/check-slug": {
+      "get": {
+        "operationId": "OrganizationController_checkSlug_v1",
+        "parameters": [
+          {
+            "name": "slug",
+            "required": true,
+            "in": "query",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": { "200": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Check slug availability",
+        "tags": ["Organizations"]
+      }
+    },
+    "/api/v1/organizations": {
+      "post": {
+        "operationId": "OrganizationController_create_v1",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/CreateOrganizationDto" }
+            }
+          }
+        },
+        "responses": { "201": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Create organization",
+        "tags": ["Organizations"]
+      },
+      "get": {
+        "operationId": "OrganizationController_listEnriched_v1",
+        "parameters": [],
+        "responses": { "200": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "List enriched organizations for current user",
+        "tags": ["Organizations"]
+      }
+    },
+    "/api/v1/organizations/guest-access": {
+      "get": {
+        "operationId": "OrganizationController_listGuestAccess_v1",
+        "parameters": [],
+        "responses": { "200": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "List guest-access organizations for current user",
+        "tags": ["Organizations"]
+      }
+    },
+    "/api/v1/organizations/roles": {
+      "get": {
+        "operationId": "OrganizationController_getUserRoles_v1",
+        "parameters": [],
+        "responses": { "200": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Get current user role in all orgs",
+        "tags": ["Organizations"]
+      }
+    },
+    "/api/v1/organizations/{orgId}/members": {
+      "get": {
+        "operationId": "OrganizationController_getMembers_v1",
+        "parameters": [
+          {
+            "name": "orgId",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": { "200": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "List organization members",
+        "tags": ["Organizations"]
+      }
+    },
+    "/api/v1/organizations/{orgId}/invitations": {
+      "get": {
+        "operationId": "OrganizationController_getInvitations_v1",
+        "parameters": [
+          {
+            "name": "orgId",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": { "200": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "List organization invitations",
+        "tags": ["Organizations"]
+      }
+    },
+    "/api/v1/organizations/{orgId}": {
+      "get": {
+        "operationId": "OrganizationController_getById_v1",
+        "parameters": [
+          {
+            "name": "orgId",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": { "200": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Get org with members and invitations",
+        "tags": ["Organizations"]
+      },
+      "patch": {
+        "operationId": "OrganizationController_update_v1",
+        "parameters": [
+          {
+            "name": "orgId",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/UpdateOrganizationDto" }
+            }
+          }
+        },
+        "responses": { "200": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Update organization",
+        "tags": ["Organizations"]
+      }
+    },
+    "/api/v1/organizations/{orgId}/language": {
+      "patch": {
+        "operationId": "OrganizationController_updateLanguage_v1",
+        "parameters": [
+          {
+            "name": "orgId",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateOrganizationLanguageDto"
+              }
+            }
+          }
+        },
+        "responses": { "200": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Update organization language",
+        "tags": ["Organizations"]
+      }
+    },
+    "/api/v1/organizations/{orgId}/status": {
+      "get": {
+        "operationId": "OrganizationController_getStatus_v1",
+        "parameters": [
+          {
+            "name": "orgId",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": { "200": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Get organization resource counts",
+        "tags": ["Organizations"]
+      }
+    },
+    "/api/v1/organizations/{orgId}/members/invite": {
+      "post": {
+        "operationId": "OrganizationController_invite_v1",
+        "parameters": [
+          {
+            "name": "orgId",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/InviteMemberDto" }
+            }
+          }
+        },
+        "responses": { "201": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Invite member to organization",
+        "tags": ["Organizations"]
+      }
+    },
+    "/api/v1/organizations/{orgId}/members/{userId}": {
+      "delete": {
+        "operationId": "OrganizationController_removeMember_v1",
+        "parameters": [
+          {
+            "name": "orgId",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          },
+          {
+            "name": "userId",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": { "200": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Remove member from organization",
+        "tags": ["Organizations"]
+      }
+    },
+    "/api/v1/organizations/{orgId}/members/{userId}/role": {
+      "patch": {
+        "operationId": "OrganizationController_updateMemberRole_v1",
+        "parameters": [
+          {
+            "name": "orgId",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          },
+          {
+            "name": "userId",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/UpdateMemberRoleDto" }
+            }
+          }
+        },
+        "responses": { "200": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Update member role",
+        "tags": ["Organizations"]
+      }
+    },
+    "/api/v1/invitations/{invitationId}": {
+      "get": {
+        "operationId": "InvitationController_getInvitation_v1",
+        "parameters": [
+          {
+            "name": "invitationId",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": { "200": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Get invitation details (public)",
+        "tags": ["Invitations"]
+      }
+    },
+    "/api/v1/invitations/{invitationId}/accept": {
+      "post": {
+        "operationId": "InvitationController_acceptInvitation_v1",
+        "parameters": [
+          {
+            "name": "invitationId",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": { "201": { "description": "" } },
+        "security": [{ "bearer": [] }, { "bearer": [] }],
+        "summary": "Accept invitation",
+        "tags": ["Invitations"]
+      }
+    },
+    "/api/v1/users/check-email": {
+      "post": {
+        "operationId": "UserController_checkEmail_v1",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/CheckEmailDto" }
+            }
+          }
+        },
+        "responses": { "201": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Check if email is registered (public)",
+        "tags": ["Users"]
+      }
+    },
+    "/api/v1/users/create-with-organization": {
+      "post": {
+        "operationId": "UserController_createWithOrganization_v1",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateUserWithOrganizationDto"
+              }
+            }
+          }
+        },
+        "responses": { "201": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Create user and organization (public onboarding)",
+        "tags": ["Users"]
+      }
+    },
+    "/api/v1/users/me": {
+      "get": {
+        "operationId": "UserController_me_v1",
+        "parameters": [],
+        "responses": { "200": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Get current user profile",
+        "tags": ["Users"]
+      },
+      "patch": {
+        "operationId": "UserController_update_v1",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/UpdateUserDto" }
+            }
+          }
+        },
+        "responses": { "200": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Update current user profile",
+        "tags": ["Users"]
+      },
+      "delete": {
+        "operationId": "UserController_deleteMe_v1",
+        "parameters": [],
+        "responses": { "200": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Delete current user account",
+        "tags": ["Users"]
+      }
+    },
+    "/api/v1/users/me/language": {
+      "patch": {
+        "operationId": "UserController_updateLanguage_v1",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/UpdateUserLanguageDto" }
+            }
+          }
+        },
+        "responses": { "200": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Update language preference",
+        "tags": ["Users"]
+      }
+    },
+    "/api/v1/users/me/accept-migration": {
+      "post": {
+        "operationId": "UserController_acceptMigration_v1",
+        "parameters": [],
+        "responses": { "201": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Accept rebrand migration",
+        "tags": ["Users"]
+      }
+    },
+    "/api/v1/users/me/sessions": {
+      "get": {
+        "operationId": "UserController_listSessions_v1",
+        "parameters": [],
+        "responses": { "200": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "List active sessions",
+        "tags": ["Users"]
+      },
+      "delete": {
+        "operationId": "UserController_revokeAllOtherSessions_v1",
+        "parameters": [],
+        "responses": { "200": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Revoke all other sessions",
+        "tags": ["Users"]
+      }
+    },
+    "/api/v1/users/me/sessions/{sessionId}": {
+      "delete": {
+        "operationId": "UserController_revokeSession_v1",
+        "parameters": [
+          {
+            "name": "sessionId",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": { "200": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Revoke specific session",
+        "tags": ["Users"]
+      }
+    },
+    "/api/v1/users/me/accounts": {
+      "get": {
+        "operationId": "UserController_listAccounts_v1",
+        "parameters": [],
+        "responses": { "200": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "List linked OAuth providers",
+        "tags": ["Users"]
+      }
+    },
+    "/api/v1/users/me/account": {
+      "delete": {
+        "operationId": "UserController_deleteAccount_v1",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/DeleteAccountDto" }
+            }
+          }
+        },
+        "responses": { "200": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Unlink OAuth provider account",
+        "tags": ["Users"]
+      }
+    },
+    "/api/v1/users/{userId}": {
+      "get": {
+        "operationId": "UserController_getById_v1",
+        "parameters": [
+          {
+            "name": "userId",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": { "200": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Get user by ID (public)",
+        "tags": ["Users"]
+      }
+    },
+    "/api/v1/images/record": {
+      "post": {
+        "operationId": "ImageController_recordUpload_v1",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/RecordUploadDto" }
+            }
+          }
+        },
+        "responses": { "201": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Record image upload metadata",
+        "tags": ["Images"]
+      }
+    },
+    "/api/v1/images": {
+      "delete": {
+        "operationId": "ImageController_deleteImage_v1",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/DeleteImageDto" }
+            }
+          }
+        },
+        "responses": { "200": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Delete image",
+        "tags": ["Images"]
+      }
+    },
+    "/api/v1/images/replace": {
+      "put": {
+        "operationId": "ImageController_replaceImage_v1",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/ReplaceImageDto" }
+            }
+          }
+        },
+        "responses": { "200": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Replace image",
+        "tags": ["Images"]
+      }
+    },
+    "/api/v1/images/placeholder": {
+      "get": {
+        "operationId": "ImageController_getPlaceholder_v1",
+        "parameters": [
+          {
+            "name": "type",
+            "required": true,
+            "in": "query",
+            "schema": { "type": "string" }
+          },
+          {
+            "name": "size",
+            "required": true,
+            "in": "query",
+            "schema": { "type": "string" }
+          },
+          {
+            "name": "name",
+            "required": true,
+            "in": "query",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": { "200": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Get placeholder image URL",
+        "tags": ["Images"]
+      }
+    },
+    "/api/v1/images/constraints": {
+      "get": {
+        "operationId": "ImageController_getConstraints_v1",
+        "parameters": [
+          {
+            "name": "type",
+            "required": true,
+            "in": "query",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": { "200": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Get image constraints by type",
+        "tags": ["Images"]
+      }
+    },
+    "/api/v1/images/entity": {
+      "patch": {
+        "operationId": "ImageController_updateEntityImage_v1",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/UpdateEntityImageDto" }
+            }
+          }
+        },
+        "responses": { "200": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Update entity image URL",
+        "tags": ["Images"]
+      }
+    },
+    "/api/v1/images/cleanup": {
+      "post": {
+        "operationId": "ImageController_cleanupDatabase_v1",
+        "parameters": [],
+        "responses": { "201": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Cleanup null image references",
+        "tags": ["Images"]
+      }
+    },
+    "/api/v1/onboarding/complete": {
+      "post": {
+        "operationId": "OnboardingController_complete_v1",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/CompleteOnboardingDto" }
+            }
+          }
+        },
+        "responses": { "201": { "description": "" } },
+        "summary": "Complete onboarding — creates user, org, monitor, optional status page + team invitations",
+        "tags": ["Onboarding"]
+      }
+    },
+    "/api/v1/uptime/{id}": {
+      "get": {
+        "operationId": "UptimeMonitorController_getById_v1",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": { "200": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Get an uptime monitor by ID",
+        "tags": ["uptime"]
+      },
+      "patch": {
+        "operationId": "UptimeMonitorController_update_v1",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateUptimeMonitorDto"
+              }
+            }
+          }
+        },
+        "responses": { "200": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Update an uptime monitor",
+        "tags": ["uptime"]
+      },
+      "delete": {
+        "operationId": "UptimeMonitorController_delete_v1",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": { "204": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Delete an uptime monitor",
+        "tags": ["uptime"]
+      }
+    },
+    "/api/v1/uptime/{id}/statistics": {
+      "get": {
+        "operationId": "UptimeMonitorController_getStatistics_v1",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          },
+          {
+            "name": "timeRange",
+            "required": false,
+            "in": "query",
+            "schema": { "enum": ["24h", "7d"], "type": "string" }
+          }
+        ],
+        "responses": { "200": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Get statistics for a monitor",
+        "tags": ["uptime"]
+      }
+    },
+    "/api/v1/uptime/{id}/uptime-logs": {
+      "get": {
+        "operationId": "UptimeMonitorController_getUptimeLogs_v1",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          },
+          { "name": "dateTo", "required": false, "in": "query", "schema": {} },
+          {
+            "name": "dateFrom",
+            "required": false,
+            "in": "query",
+            "schema": {}
+          },
+          {
+            "name": "region",
+            "required": false,
+            "in": "query",
+            "schema": { "type": "array", "items": {} }
+          },
+          {
+            "name": "status",
+            "required": false,
+            "in": "query",
+            "schema": {
+              "type": "array",
+              "items": { "type": "string", "enum": ["UP", "DOWN", "UNKNOWN"] }
+            }
+          },
+          {
+            "name": "limit",
+            "required": false,
+            "in": "query",
+            "schema": { "type": "number" }
+          },
+          { "name": "cursor", "required": false, "in": "query", "schema": {} }
+        ],
+        "responses": { "200": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Get paginated uptime logs (cursor-based)",
+        "tags": ["uptime"]
+      }
+    },
+    "/api/v1/monitors": {
+      "get": {
+        "operationId": "OrganizationMonitorController_getAllByOrganization_v1",
+        "parameters": [],
+        "responses": { "200": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "List all monitors (all types, lightweight) for an organization",
+        "tags": ["monitors"]
+      }
+    },
+    "/api/v1/monitors/organization/statistics": {
+      "get": {
+        "operationId": "OrganizationMonitorController_getOrganizationStatistics_v1",
+        "parameters": [
+          {
+            "name": "timeRange",
+            "required": false,
+            "in": "query",
+            "schema": { "enum": ["24h", "7d", "30d"], "type": "string" }
+          }
+        ],
+        "responses": { "200": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Get aggregated statistics for all uptime monitors in an organization",
+        "tags": ["monitors"]
+      }
+    },
+    "/api/v1/monitors/{id}": {
+      "get": {
+        "operationId": "OrganizationMonitorController_getById_v1",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": { "200": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Get a monitor by ID (any type)",
+        "tags": ["monitors"]
+      }
+    },
+    "/api/v1/uptime": {
+      "get": {
+        "operationId": "OrganizationUptimeMonitorController_getByOrganization_v1",
+        "parameters": [
+          {
+            "name": "include",
+            "required": false,
+            "in": "query",
+            "description": "Pass \"metrics\" to include computed uptime metrics",
+            "schema": {}
+          }
+        ],
+        "responses": { "200": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "List uptime monitors for an organization",
+        "tags": ["uptime"]
+      },
+      "post": {
+        "operationId": "OrganizationUptimeMonitorController_create_v1",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateUptimeMonitorDto"
+              }
+            }
+          }
+        },
+        "responses": { "201": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Create an uptime monitor",
+        "tags": ["uptime"]
+      }
+    },
+    "/api/v1/status-pages/{statusPageId}/monitors/statistics": {
+      "get": {
+        "operationId": "StatusPageMonitorController_getStatusPageStatistics_v1",
+        "parameters": [
+          {
+            "name": "statusPageId",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          },
+          {
+            "name": "timeRange",
+            "required": false,
+            "in": "query",
+            "schema": { "enum": ["24h", "7d", "30d"], "type": "string" }
+          }
+        ],
+        "responses": { "200": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Get aggregated monitor statistics for a status page",
+        "tags": ["monitors"]
+      }
+    },
+    "/api/v1/status-pages/{statusPageId}/uptime": {
+      "get": {
+        "operationId": "StatusPageUptimeMonitorController_getByStatusPage_v1",
+        "parameters": [
+          {
+            "name": "statusPageId",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": { "200": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Get uptime monitors with metrics for a status page",
+        "tags": ["uptime"]
+      }
+    },
+    "/api/v1/heartbeats": {
+      "get": {
+        "operationId": "HeartbeatController_list_v1",
+        "parameters": [
+          {
+            "name": "includeInactive",
+            "required": false,
+            "in": "query",
+            "schema": { "type": "boolean" }
+          }
+        ],
+        "responses": { "200": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "List heartbeat monitors for an organization",
+        "tags": ["heartbeats"]
+      },
+      "post": {
+        "operationId": "HeartbeatController_create_v1",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/CreateHeartbeatDto" }
+            }
+          }
+        },
+        "responses": { "201": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Create a heartbeat monitor",
+        "tags": ["heartbeats"]
+      }
+    },
+    "/api/v1/heartbeats/{id}": {
+      "get": {
+        "operationId": "HeartbeatController_get_v1",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": { "200": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Get a heartbeat monitor with recent pings",
+        "tags": ["heartbeats"]
+      },
+      "patch": {
+        "operationId": "HeartbeatController_update_v1",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/UpdateHeartbeatDto" }
+            }
+          }
+        },
+        "responses": { "200": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Update a heartbeat monitor",
+        "tags": ["heartbeats"]
+      },
+      "delete": {
+        "operationId": "HeartbeatController_delete_v1",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": { "204": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Delete a heartbeat monitor",
+        "tags": ["heartbeats"]
+      }
+    },
+    "/api/v1/heartbeats/{id}/token/regenerate": {
+      "post": {
+        "operationId": "HeartbeatController_regenerateToken_v1",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": { "201": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Regenerate heartbeat token",
+        "tags": ["heartbeats"]
+      }
+    },
+    "/api/v1/heartbeats/{id}/pause": {
+      "post": {
+        "operationId": "HeartbeatController_pause_v1",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/PauseHeartbeatDto" }
+            }
+          }
+        },
+        "responses": { "201": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Pause a heartbeat monitor for N hours",
+        "tags": ["heartbeats"]
+      }
+    },
+    "/api/v1/heartbeats/{id}/unpause": {
+      "post": {
+        "operationId": "HeartbeatController_unpause_v1",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": { "201": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Unpause a heartbeat monitor",
+        "tags": ["heartbeats"]
+      }
+    },
+    "/api/v1/on-call/teams": {
+      "get": {
+        "operationId": "OnCallTeamController_listTeams_v1",
+        "parameters": [],
+        "responses": { "200": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "List on-call teams",
+        "tags": ["on-call"]
+      },
+      "post": {
+        "operationId": "OnCallTeamController_createTeam_v1",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/CreateOnCallTeamDto" }
+            }
+          }
+        },
+        "responses": { "201": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Create an on-call team",
+        "tags": ["on-call"]
+      }
+    },
+    "/api/v1/on-call/teams/{teamId}": {
+      "get": {
+        "operationId": "OnCallTeamController_getTeam_v1",
+        "parameters": [
+          {
+            "name": "teamId",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": { "200": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Get an on-call team with members and channels",
+        "tags": ["on-call"]
+      },
+      "patch": {
+        "operationId": "OnCallTeamController_updateTeam_v1",
+        "parameters": [
+          {
+            "name": "teamId",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/UpdateOnCallTeamDto" }
+            }
+          }
+        },
+        "responses": { "200": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Update an on-call team",
+        "tags": ["on-call"]
+      },
+      "delete": {
+        "operationId": "OnCallTeamController_deleteTeam_v1",
+        "parameters": [
+          {
+            "name": "teamId",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": { "204": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Delete an on-call team",
+        "tags": ["on-call"]
+      }
+    },
+    "/api/v1/on-call/teams/{teamId}/members": {
+      "post": {
+        "operationId": "OnCallTeamController_addMember_v1",
+        "parameters": [
+          {
+            "name": "teamId",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/CreateOnCallMemberDto" }
+            }
+          }
+        },
+        "responses": { "201": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Add a member to a team",
+        "tags": ["on-call"]
+      }
+    },
+    "/api/v1/on-call/teams/{teamId}/members/{memberId}": {
+      "patch": {
+        "operationId": "OnCallTeamController_updateMember_v1",
+        "parameters": [
+          {
+            "name": "teamId",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          },
+          {
+            "name": "memberId",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/UpdateOnCallMemberDto" }
+            }
+          }
+        },
+        "responses": { "200": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Update a team member",
+        "tags": ["on-call"]
+      },
+      "delete": {
+        "operationId": "OnCallTeamController_removeMember_v1",
+        "parameters": [
+          {
+            "name": "teamId",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          },
+          {
+            "name": "memberId",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": { "204": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Remove a member from a team",
+        "tags": ["on-call"]
+      }
+    },
+    "/api/v1/on-call/teams/{teamId}/members/{memberId}/activate": {
+      "post": {
+        "operationId": "OnCallTeamController_activateMember_v1",
+        "parameters": [
+          {
+            "name": "teamId",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          },
+          {
+            "name": "memberId",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": { "204": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Set a member as active on-call for their team",
+        "tags": ["on-call"]
+      }
+    },
+    "/api/v1/on-call/policies": {
+      "get": {
+        "operationId": "OnCallPolicyController_listPolicies_v1",
+        "parameters": [],
+        "responses": { "200": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "List on-call policies",
+        "tags": ["on-call"]
+      },
+      "post": {
+        "operationId": "OnCallPolicyController_createPolicy_v1",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/CreateOnCallPolicyDto" }
+            }
+          }
+        },
+        "responses": { "201": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Create an on-call policy",
+        "tags": ["on-call"]
+      }
+    },
+    "/api/v1/on-call/policies/type-counts": {
+      "get": {
+        "operationId": "OnCallPolicyController_getTypeCounts_v1",
+        "parameters": [],
+        "responses": { "200": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Get channel type distribution across policies",
+        "tags": ["on-call"]
+      }
+    },
+    "/api/v1/on-call/policies/{policyId}": {
+      "get": {
+        "operationId": "OnCallPolicyController_getPolicy_v1",
+        "parameters": [
+          {
+            "name": "policyId",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": { "200": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Get an on-call policy",
+        "tags": ["on-call"]
+      },
+      "patch": {
+        "operationId": "OnCallPolicyController_updatePolicy_v1",
+        "parameters": [
+          {
+            "name": "policyId",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/UpdateOnCallPolicyDto" }
+            }
+          }
+        },
+        "responses": { "200": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Update an on-call policy",
+        "tags": ["on-call"]
+      },
+      "delete": {
+        "operationId": "OnCallPolicyController_deletePolicy_v1",
+        "parameters": [
+          {
+            "name": "policyId",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": { "204": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Delete an on-call policy",
+        "tags": ["on-call"]
+      }
+    },
+    "/api/v1/on-call/graph": {
+      "get": {
+        "operationId": "OnCallMigrateController_getGraph_v1",
+        "parameters": [],
+        "responses": { "200": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Get on-call graph data (policies with team members, channels, and monitor assignments)",
+        "tags": ["on-call"]
+      }
+    },
+    "/api/v1/on-call/migrate": {
+      "post": {
+        "operationId": "OnCallMigrateController_migrateOrg_v1",
+        "parameters": [],
+        "responses": { "201": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Migrate org to on-call (no-op)",
+        "tags": ["on-call"]
+      }
+    },
+    "/api/v1/on-call/teams/{teamId}/channels": {
+      "get": {
+        "operationId": "OnCallChannelController_listChannels_v1",
+        "parameters": [
+          {
+            "name": "teamId",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": { "200": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "List channels for a team",
+        "tags": ["on-call"]
+      },
+      "post": {
+        "operationId": "OnCallChannelController_addChannel_v1",
+        "parameters": [
+          {
+            "name": "teamId",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateOnCallChannelDto"
+              }
+            }
+          }
+        },
+        "responses": { "201": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Add a channel to a team",
+        "tags": ["on-call"]
+      }
+    },
+    "/api/v1/on-call/teams/{teamId}/channels/{channelId}": {
+      "patch": {
+        "operationId": "OnCallChannelController_updateChannel_v1",
+        "parameters": [
+          {
+            "name": "teamId",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          },
+          {
+            "name": "channelId",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateOnCallChannelDto"
+              }
+            }
+          }
+        },
+        "responses": { "200": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Update a channel (config and/or enabled state)",
+        "tags": ["on-call"]
+      },
+      "delete": {
+        "operationId": "OnCallChannelController_deleteChannel_v1",
+        "parameters": [
+          {
+            "name": "teamId",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          },
+          {
+            "name": "channelId",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": { "204": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Remove a channel from a team",
+        "tags": ["on-call"]
+      }
+    },
+    "/api/v1/on-call/monitors/{monitorId}/policies": {
+      "get": {
+        "operationId": "MonitorOnCallPolicyController_listPolicies_v1",
+        "parameters": [
+          {
+            "name": "monitorId",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": { "200": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Get on-call policy assignments for a monitor",
+        "tags": ["on-call"]
+      },
+      "post": {
+        "operationId": "MonitorOnCallPolicyController_assignPolicy_v1",
+        "parameters": [
+          {
+            "name": "monitorId",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/AssignOnCallPolicyDto" }
+            }
+          }
+        },
+        "responses": { "204": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Assign an on-call policy to a monitor",
+        "tags": ["on-call"]
+      }
+    },
+    "/api/v1/on-call/monitors/{monitorId}/policies/{policyId}": {
+      "patch": {
+        "operationId": "MonitorOnCallPolicyController_togglePolicy_v1",
+        "parameters": [
+          {
+            "name": "monitorId",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          },
+          {
+            "name": "policyId",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/ToggleOnCallPolicyDto" }
+            }
+          }
+        },
+        "responses": { "204": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Toggle a policy assignment on/off for a monitor",
+        "tags": ["on-call"]
+      },
+      "delete": {
+        "operationId": "MonitorOnCallPolicyController_unassignPolicy_v1",
+        "parameters": [
+          {
+            "name": "monitorId",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          },
+          {
+            "name": "policyId",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": { "204": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Unassign an on-call policy from a monitor",
+        "tags": ["on-call"]
+      }
+    },
+    "/api/v1/on-call/notifications": {
+      "get": {
+        "operationId": "OnCallNotificationController_listNotifications_v1",
+        "parameters": [
+          {
+            "name": "limit",
+            "required": false,
+            "in": "query",
+            "schema": { "type": "number" }
+          },
+          {
+            "name": "page",
+            "required": false,
+            "in": "query",
+            "schema": { "type": "number" }
+          },
+          {
+            "name": "deliveryStatus",
+            "required": false,
+            "in": "query",
+            "schema": {
+              "enum": ["QUEUED", "PROCESSING", "SENT", "FAILED"],
+              "type": "string"
+            }
+          },
+          {
+            "name": "monitorId",
+            "required": false,
+            "in": "query",
+            "schema": {}
+          }
+        ],
+        "responses": { "200": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "List on-call notifications for an organization",
+        "tags": ["on-call"]
+      }
+    },
+    "/api/v1/integrations/apps": {
+      "get": {
+        "operationId": "IntegrationsCatalogController_listApps_v1",
+        "parameters": [
+          {
+            "name": "appType",
+            "required": false,
+            "in": "query",
+            "schema": { "type": "string", "enum": ["source", "destination"] }
+          }
+        ],
+        "responses": { "200": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "List available integration apps",
+        "tags": ["integrations"]
+      }
+    },
+    "/api/v1/integrations/apps/counts": {
+      "get": {
+        "operationId": "IntegrationsCatalogController_getAppTypeCounts_v1",
+        "parameters": [],
+        "responses": { "200": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Get app counts by type (source vs destination)",
+        "tags": ["integrations"]
+      }
+    },
+    "/api/v1/integrations/apps/{appId}": {
+      "get": {
+        "operationId": "IntegrationsCatalogController_getApp_v1",
+        "parameters": [
+          {
+            "name": "appId",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": { "200": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Get a single integration app with its latest version",
+        "tags": ["integrations"]
+      }
+    },
+    "/api/v1/integrations/installations": {
+      "get": {
+        "operationId": "IntegrationsInstallationController_list_v1",
+        "parameters": [
+          {
+            "name": "status",
+            "required": false,
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "draft",
+                "active",
+                "disabled",
+                "reconnect_required",
+                "error"
+              ]
+            }
+          },
+          {
+            "name": "appType",
+            "required": false,
+            "in": "query",
+            "schema": { "type": "string", "enum": ["source", "destination"] }
+          },
+          {
+            "name": "appId",
+            "required": false,
+            "in": "query",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": { "200": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "List installations for an organization",
+        "tags": ["integrations"]
+      },
+      "post": {
+        "operationId": "IntegrationsInstallationController_create_v1",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/CreateInstallationDto" }
+            }
+          }
+        },
+        "responses": { "201": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Create or return existing installation for an app",
+        "tags": ["integrations"]
+      }
+    },
+    "/api/v1/integrations/installations/{id}": {
+      "get": {
+        "operationId": "IntegrationsInstallationController_getOne_v1",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": { "200": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Get a single installation",
+        "tags": ["integrations"]
+      },
+      "patch": {
+        "operationId": "IntegrationsInstallationController_updateConfig_v1",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateInstallationConfigDto"
+              }
+            }
+          }
+        },
+        "responses": { "200": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Update connection metadata for an installation",
+        "tags": ["integrations"]
+      }
+    },
+    "/api/v1/integrations/installations/{id}/disable": {
+      "post": {
+        "operationId": "IntegrationsInstallationController_disable_v1",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": { "200": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Disable an installation",
+        "tags": ["integrations"]
+      }
+    },
+    "/api/v1/integrations/installations/{id}/health": {
+      "get": {
+        "operationId": "IntegrationsInstallationController_getHealth_v1",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": { "200": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Get installation health including sync state",
+        "tags": ["integrations"]
+      }
+    },
+    "/api/v1/integrations/installations/{id}/reconnect": {
+      "post": {
+        "operationId": "IntegrationsInstallationController_reconnect_v1",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": { "200": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Initiate OAuth reconnect for an installation",
+        "tags": ["integrations"]
+      }
+    },
+    "/api/v1/integrations/installations/{id}/destination-configs": {
+      "get": {
+        "operationId": "IntegrationsDestinationConfigController_list_v1",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": { "200": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "List destination configs for an installation",
+        "tags": ["integrations"]
+      },
+      "post": {
+        "operationId": "IntegrationsDestinationConfigController_create_v1",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateDestinationConfigDto"
+              }
+            }
+          }
+        },
+        "responses": { "201": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Create a destination config",
+        "tags": ["integrations"]
+      }
+    },
+    "/api/v1/integrations/installations/{id}/destination-configs/{configId}": {
+      "patch": {
+        "operationId": "IntegrationsDestinationConfigController_update_v1",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          },
+          {
+            "name": "configId",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateDestinationConfigDto"
+              }
+            }
+          }
+        },
+        "responses": { "200": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Update a destination config",
+        "tags": ["integrations"]
+      },
+      "delete": {
+        "operationId": "IntegrationsDestinationConfigController_remove_v1",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          },
+          {
+            "name": "configId",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": { "204": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Delete a destination config",
+        "tags": ["integrations"]
+      }
+    },
+    "/api/v1/integrations/installations/{id}/destination-configs/preview": {
+      "post": {
+        "operationId": "IntegrationsDestinationConfigController_preview_v1",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/PreviewTemplateDto" }
+            }
+          }
+        },
+        "responses": { "200": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Preview a Liquid template with provided variables",
+        "tags": ["integrations"]
+      }
+    },
+    "/api/v1/integrations/installations/{id}/destination-configs/{configId}/test": {
+      "post": {
+        "operationId": "IntegrationsDestinationConfigController_test_v1",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          },
+          {
+            "name": "configId",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": { "200": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Fire a test HTTP delivery to a destination config",
+        "tags": ["integrations"]
+      }
+    },
+    "/api/v1/integrations/webhooks/{installationId}": {
+      "post": {
+        "operationId": "IntegrationsWebhookController_receive_v1",
+        "parameters": [
+          {
+            "name": "installationId",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": { "202": { "description": "" } },
+        "summary": "Receive an incoming webhook event for an installation",
+        "tags": ["integrations"]
+      }
+    },
+    "/api/v1/status-pages": {
+      "get": {
+        "operationId": "PublicStatusPageController_getStatusPage_v1",
+        "parameters": [
+          {
+            "name": "slug",
+            "required": false,
+            "in": "query",
+            "description": "Status page slug (domain field)",
+            "schema": { "example": "mycompany", "type": "string" }
+          },
+          {
+            "name": "domain",
+            "required": false,
+            "in": "query",
+            "description": "Full domain (custom or *.statuspage.one)",
+            "schema": { "example": "status.mycompany.com", "type": "string" }
+          }
+        ],
+        "responses": { "200": { "description": "" } },
+        "summary": "Resolve status page by slug or domain",
+        "tags": ["status-pages"]
+      }
+    },
+    "/api/v1/status-pages/{id}/status": {
+      "get": {
+        "operationId": "PublicStatusPageController_getLatestStatus_v1",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": { "200": { "description": "" } },
+        "summary": "Get current aggregate status of a status page",
+        "tags": ["status-pages"]
+      }
+    },
+    "/api/v1/status-pages/domain/availability": {
+      "get": {
+        "operationId": "PublicStatusPageController_checkAvailability_v1",
+        "parameters": [
+          {
+            "name": "slug",
+            "required": true,
+            "in": "query",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": { "200": { "description": "" } },
+        "summary": "Check if a status page slug is available",
+        "tags": ["status-pages"]
+      }
+    },
+    "/api/v1/status-pages/{id}/customization": {
+      "get": {
+        "operationId": "PublicCustomizationController_getCustomization_v1",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": { "200": { "description": "" } },
+        "summary": "Get customization for a status page",
+        "tags": ["status-pages"]
+      },
+      "patch": {
+        "operationId": "ManagementCustomizationController_updateCustomization_v1",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateCustomizationDto"
+              }
+            }
+          }
+        },
+        "responses": { "200": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Update customization for a status page",
+        "tags": ["status-pages"]
+      },
+      "delete": {
+        "operationId": "ManagementCustomizationController_resetCustomization_v1",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": { "200": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Reset customization to defaults",
+        "tags": ["status-pages"]
+      }
+    },
+    "/api/v1/status-pages/{id}/monitors": {
+      "get": {
+        "operationId": "PublicComponentController_getMonitors_v1",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": { "200": { "description": "" } },
+        "summary": "Get monitors for a status page",
+        "tags": ["status-pages"]
+      }
+    },
+    "/api/v1/status-pages/{id}/components": {
+      "get": {
+        "operationId": "PublicComponentController_getComponentTree_v1",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          },
+          { "name": "days", "required": false, "in": "query", "schema": {} }
+        ],
+        "responses": { "200": { "description": "" } },
+        "summary": "Get component tree with uptime data",
+        "tags": ["status-pages"]
+      }
+    },
+    "/api/v1/status-pages/{id}/monitors/{monitorId}/aggregations": {
+      "get": {
+        "operationId": "PublicComponentController_getMonitorAggregations_v1",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          },
+          {
+            "name": "monitorId",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          },
+          { "name": "date", "required": true, "in": "query", "schema": {} }
+        ],
+        "responses": { "200": { "description": "" } },
+        "summary": "Get hourly aggregations for a monitor",
+        "tags": ["status-pages"]
+      }
+    },
+    "/api/v1/status-pages/{id}/incidents": {
+      "get": {
+        "operationId": "PublicIncidentController_getIncidents_v1",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          },
+          {
+            "name": "limit",
+            "required": false,
+            "in": "query",
+            "description": "Results per page (default 20, max 100)",
+            "schema": { "type": "number" }
+          },
+          {
+            "name": "page",
+            "required": false,
+            "in": "query",
+            "description": "Page number (default 1)",
+            "schema": { "type": "number" }
+          },
+          {
+            "name": "status",
+            "required": false,
+            "in": "query",
+            "description": "Filter by status (e.g. investigating)",
+            "schema": {}
+          }
+        ],
+        "responses": { "200": { "description": "" } },
+        "summary": "Get incidents for a status page",
+        "tags": ["status-pages"]
+      }
+    },
+    "/api/v1/status-pages/{id}/incidents/{incidentId}": {
+      "get": {
+        "operationId": "PublicIncidentController_getIncidentById_v1",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          },
+          {
+            "name": "incidentId",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": { "200": { "description": "" } },
+        "summary": "Get a specific incident by ID",
+        "tags": ["status-pages"]
+      }
+    },
+    "/api/v1/status-pages/{id}/maintenance": {
+      "get": {
+        "operationId": "PublicMaintenanceController_getMaintenance_v1",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          },
+          {
+            "name": "limit",
+            "required": false,
+            "in": "query",
+            "schema": { "type": "number" }
+          },
+          {
+            "name": "page",
+            "required": false,
+            "in": "query",
+            "schema": { "type": "number" }
+          },
+          {
+            "name": "endDate",
+            "required": false,
+            "in": "query",
+            "description": "ISO 8601 datetime — enables date-range mode (requires startDate)",
+            "schema": {}
+          },
+          {
+            "name": "startDate",
+            "required": false,
+            "in": "query",
+            "description": "ISO 8601 datetime — enables date-range mode (requires endDate)",
+            "schema": {}
+          },
+          {
+            "name": "status",
+            "required": false,
+            "in": "query",
+            "description": "Filter by status (scheduled | in_progress | completed | cancelled)",
+            "schema": {}
+          }
+        ],
+        "responses": { "200": { "description": "" } },
+        "summary": "Get maintenance windows for a status page",
+        "tags": ["status-pages"]
+      }
+    },
+    "/api/v1/status-pages/{id}/maintenance/{maintenanceId}": {
+      "get": {
+        "operationId": "PublicMaintenanceController_getMaintenanceById_v1",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          },
+          {
+            "name": "maintenanceId",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": { "200": { "description": "" } },
+        "summary": "Get a specific maintenance event by ID",
+        "tags": ["status-pages"]
+      }
+    },
+    "/api/v1/status-pages/{id}/updates": {
+      "get": {
+        "operationId": "PublicStatusUpdateController_getStatusUpdates_v1",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          },
+          { "name": "limit", "required": false, "in": "query", "schema": {} },
+          { "name": "page", "required": false, "in": "query", "schema": {} }
+        ],
+        "responses": { "200": { "description": "" } },
+        "summary": "Get status updates for a status page",
+        "tags": ["status-pages"]
+      }
+    },
+    "/api/v1/status-pages/{id}/subscriptions": {
+      "post": {
+        "operationId": "PublicSubscriptionController_createSubscription_v1",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/CreateSubscriptionDto" }
+            }
+          }
+        },
+        "responses": { "201": { "description": "" } },
+        "summary": "Subscribe to status page notifications",
+        "tags": ["subscriptions"]
+      }
+    },
+    "/api/v1/subscriptions/verifications": {
+      "get": {
+        "operationId": "PublicSubscriptionController_getVerification_v1",
+        "parameters": [
+          {
+            "name": "token",
+            "required": true,
+            "in": "query",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": { "200": { "description": "" } },
+        "summary": "Read subscription token details (pre-confirm preview)",
+        "tags": ["subscriptions"]
+      },
+      "post": {
+        "operationId": "PublicSubscriptionController_verifyToken_v1",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/TokenDto" }
+            }
+          }
+        },
+        "responses": { "201": { "description": "" } },
+        "summary": "Validate subscription token",
+        "tags": ["subscriptions"]
+      }
+    },
+    "/api/v1/subscriptions/confirmations": {
+      "post": {
+        "operationId": "PublicSubscriptionController_confirmSubscription_v1",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/TokenDto" }
+            }
+          }
+        },
+        "responses": { "201": { "description": "" } },
+        "summary": "Confirm subscription",
+        "tags": ["subscriptions"]
+      }
+    },
+    "/api/v1/subscriptions/unsubscribe": {
+      "post": {
+        "operationId": "PublicSubscriptionController_unsubscribe_v1",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/UnsubscribeDto" }
+            }
+          }
+        },
+        "responses": { "201": { "description": "" } },
+        "summary": "Unsubscribe from status page notifications",
+        "tags": ["subscriptions"]
+      }
+    },
+    "/api/v1/subscriptions/plans": {
+      "get": {
+        "operationId": "PublicSubscriptionController_plans_v1",
+        "parameters": [
+          {
+            "name": "currency",
+            "required": false,
+            "in": "query",
+            "schema": { "enum": ["USD", "BRL"], "type": "string" }
+          },
+          {
+            "name": "locale",
+            "required": false,
+            "in": "query",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": { "200": { "description": "" } },
+        "summary": "List available subscription plans with pricing",
+        "tags": ["subscriptions"]
+      }
+    },
+    "/api/v1/status-pages/{id}/badge": {
+      "get": {
+        "operationId": "PublicBadgeController_getBadge_v1",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          },
+          {
+            "name": "preview",
+            "required": false,
+            "in": "query",
+            "schema": {
+              "enum": ["operational", "unavailable", "investigation"],
+              "type": "string"
+            }
+          },
+          {
+            "name": "textInvestigation",
+            "required": false,
+            "in": "query",
+            "schema": {}
+          },
+          {
+            "name": "textUnavailable",
+            "required": false,
+            "in": "query",
+            "schema": {}
+          },
+          {
+            "name": "textOperational",
+            "required": false,
+            "in": "query",
+            "schema": {}
+          }
+        ],
+        "responses": { "200": { "description": "" } },
+        "summary": "Get badge data for a status page",
+        "tags": ["status-pages"]
+      }
+    },
+    "/api/v1/status-pages/{id}/badge/config": {
+      "get": {
+        "operationId": "ManagementBadgeController_getBadgeConfig_v1",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          },
+          {
+            "name": "preview",
+            "required": false,
+            "in": "query",
+            "schema": {
+              "enum": ["operational", "unavailable", "investigation"],
+              "type": "string"
+            }
+          },
+          {
+            "name": "textInvestigation",
+            "required": false,
+            "in": "query",
+            "schema": {}
+          },
+          {
+            "name": "textUnavailable",
+            "required": false,
+            "in": "query",
+            "schema": {}
+          },
+          {
+            "name": "textOperational",
+            "required": false,
+            "in": "query",
+            "schema": {}
+          }
+        ],
+        "responses": { "200": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Get badge configuration for a status page (management)",
+        "tags": ["status-pages"]
+      }
+    },
+    "/api/v1/status-pages/{statusPageId}/domain": {
+      "post": {
+        "operationId": "ManagementCustomDomainController_set_v1",
+        "parameters": [
+          {
+            "name": "statusPageId",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/SetCustomDomainDto" }
+            }
+          }
+        },
+        "responses": { "201": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Set a custom domain for this status page",
+        "tags": ["status-pages"]
+      },
+      "delete": {
+        "operationId": "ManagementCustomDomainController_remove_v1",
+        "parameters": [
+          {
+            "name": "statusPageId",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": { "204": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Remove the custom domain from this status page",
+        "tags": ["status-pages"]
+      }
+    },
+    "/api/v1/status-pages/{statusPageId}/domain/verify": {
+      "post": {
+        "operationId": "ManagementCustomDomainController_verify_v1",
+        "parameters": [
+          {
+            "name": "statusPageId",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": { "201": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Trigger ownership verification for the custom domain",
+        "tags": ["status-pages"]
+      }
+    },
+    "/api/v1/status-pages/{statusPageId}/domain/verification": {
+      "get": {
+        "operationId": "ManagementCustomDomainController_checkVerification_v1",
+        "parameters": [
+          {
+            "name": "statusPageId",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": { "200": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Check current verification status of the custom domain",
+        "tags": ["status-pages"]
+      }
+    },
+    "/api/v1/organizations/{organizationId}/subscription": {
+      "get": {
+        "operationId": "ManagementSubscriptionController_subscription_v1",
+        "parameters": [
+          {
+            "name": "organizationId",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": { "200": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "tags": ["status-pages"]
+      }
+    },
+    "/api/v1/organizations/{organizationId}/subscription/usage": {
+      "get": {
+        "operationId": "ManagementSubscriptionController_usage_v1",
+        "parameters": [
+          {
+            "name": "organizationId",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": { "200": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "tags": ["status-pages"]
+      }
+    },
+    "/api/v1/manage/status-pages": {
+      "get": {
+        "operationId": "ManagementStatusPageController_list_v1",
+        "parameters": [],
+        "responses": { "200": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "List status pages for the authenticated organization",
+        "tags": ["status-pages"]
+      },
+      "post": {
+        "operationId": "ManagementStatusPageController_create_v1",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/CreateStatusPageDto" }
+            }
+          }
+        },
+        "responses": { "201": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Create a new status page",
+        "tags": ["status-pages"]
+      }
+    },
+    "/api/v1/manage/status-pages/{id}": {
+      "get": {
+        "operationId": "ManagementStatusPageController_getOne_v1",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": { "200": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Get a single status page (management view)",
+        "tags": ["status-pages"]
+      },
+      "delete": {
+        "operationId": "ManagementStatusPageController_remove_v1",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": { "204": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Delete a status page",
+        "tags": ["status-pages"]
+      }
+    },
+    "/api/v1/status-pages/{id}": {
+      "patch": {
+        "operationId": "ManagementStatusPageUpdateController_update_v1",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/UpdateStatusPageDto" }
+            }
+          }
+        },
+        "responses": { "200": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Update a status page",
+        "tags": ["status-pages"]
+      }
+    },
+    "/api/v1/status-pages/{statusPageId}/component-groups": {
+      "get": {
+        "operationId": "ManagementComponentGroupController_list_v1",
+        "parameters": [
+          {
+            "name": "statusPageId",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": { "200": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "List component groups for a status page",
+        "tags": ["status-pages"]
+      },
+      "post": {
+        "operationId": "ManagementComponentGroupController_create_v1",
+        "parameters": [
+          {
+            "name": "statusPageId",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateComponentGroupDto"
+              }
+            }
+          }
+        },
+        "responses": { "201": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Create a component group",
+        "tags": ["status-pages"]
+      }
+    },
+    "/api/v1/status-pages/{statusPageId}/component-groups/reorder": {
+      "patch": {
+        "operationId": "ManagementComponentGroupController_reorder_v1",
+        "parameters": [
+          {
+            "name": "statusPageId",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReorderComponentGroupsDto"
+              }
+            }
+          }
+        },
+        "responses": { "200": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Reorder component groups",
+        "tags": ["status-pages"]
+      }
+    },
+    "/api/v1/status-pages/{statusPageId}/component-groups/{groupId}": {
+      "patch": {
+        "operationId": "ManagementComponentGroupController_update_v1",
+        "parameters": [
+          {
+            "name": "statusPageId",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          },
+          {
+            "name": "groupId",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateComponentGroupDto"
+              }
+            }
+          }
+        },
+        "responses": { "200": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Update a component group",
+        "tags": ["status-pages"]
+      },
+      "delete": {
+        "operationId": "ManagementComponentGroupController_remove_v1",
+        "parameters": [
+          {
+            "name": "statusPageId",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          },
+          {
+            "name": "groupId",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": { "204": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Delete a component group",
+        "tags": ["status-pages"]
+      }
+    },
+    "/api/v1/status-pages/{statusPageId}/component-groups/{groupId}/move": {
+      "patch": {
+        "operationId": "ManagementComponentGroupController_move_v1",
+        "parameters": [
+          {
+            "name": "groupId",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/MoveComponentGroupDto" }
+            }
+          }
+        },
+        "responses": { "200": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Move a component group to a new parent",
+        "tags": ["status-pages"]
+      }
+    },
+    "/api/v1/status-pages/{statusPageId}/monitors": {
+      "post": {
+        "operationId": "ManagementMonitorController_link_v1",
+        "parameters": [
+          {
+            "name": "statusPageId",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/LinkMonitorDto" }
+            }
+          }
+        },
+        "responses": { "201": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Link a monitor to a status page",
+        "tags": ["status-pages"]
+      }
+    },
+    "/api/v1/status-pages/{statusPageId}/monitors/{monitorId}": {
+      "delete": {
+        "operationId": "ManagementMonitorController_unlink_v1",
+        "parameters": [
+          {
+            "name": "statusPageId",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          },
+          {
+            "name": "monitorId",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": { "204": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Unlink a monitor from a status page",
+        "tags": ["status-pages"]
+      }
+    },
+    "/api/v1/status-pages/{statusPageId}/monitors/grouped": {
+      "get": {
+        "operationId": "ManagementMonitorController_getGrouped_v1",
+        "parameters": [
+          {
+            "name": "statusPageId",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": { "200": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "List monitors with group info for a status page",
+        "tags": ["status-pages"]
+      }
+    },
+    "/api/v1/status-pages/{statusPageId}/monitors/reorder": {
+      "patch": {
+        "operationId": "ManagementMonitorController_reorder_v1",
+        "parameters": [
+          {
+            "name": "statusPageId",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/ReorderMonitorsDto" }
+            }
+          }
+        },
+        "responses": { "200": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Reorder monitors within a group",
+        "tags": ["status-pages"]
+      }
+    },
+    "/api/v1/status-pages/{statusPageId}/monitors/{monitorId}/group": {
+      "patch": {
+        "operationId": "ManagementMonitorController_moveToGroup_v1",
+        "parameters": [
+          {
+            "name": "statusPageId",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          },
+          {
+            "name": "monitorId",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/MoveMonitorDto" }
+            }
+          }
+        },
+        "responses": { "200": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Move a monitor to a different group",
+        "tags": ["status-pages"]
+      }
+    },
+    "/api/v1/status-pages/{statusPageId}/static-components": {
+      "get": {
+        "operationId": "ManagementStaticComponentController_list_v1",
+        "parameters": [
+          {
+            "name": "statusPageId",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": { "200": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "List static components for a status page",
+        "tags": ["status-pages"]
+      },
+      "post": {
+        "operationId": "ManagementStaticComponentController_create_v1",
+        "parameters": [
+          {
+            "name": "statusPageId",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateStaticComponentDto"
+              }
+            }
+          }
+        },
+        "responses": { "201": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Create a static component",
+        "tags": ["status-pages"]
+      }
+    },
+    "/api/v1/status-pages/{statusPageId}/static-components/reorder": {
+      "patch": {
+        "operationId": "ManagementStaticComponentController_reorder_v1",
+        "parameters": [
+          {
+            "name": "statusPageId",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReorderStaticComponentsDto"
+              }
+            }
+          }
+        },
+        "responses": { "200": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Reorder static components",
+        "tags": ["status-pages"]
+      }
+    },
+    "/api/v1/status-pages/{statusPageId}/static-components/{componentId}": {
+      "patch": {
+        "operationId": "ManagementStaticComponentController_update_v1",
+        "parameters": [
+          {
+            "name": "statusPageId",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          },
+          {
+            "name": "componentId",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateStaticComponentDto"
+              }
+            }
+          }
+        },
+        "responses": { "200": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Update a static component",
+        "tags": ["status-pages"]
+      },
+      "delete": {
+        "operationId": "ManagementStaticComponentController_remove_v1",
+        "parameters": [
+          {
+            "name": "statusPageId",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          },
+          {
+            "name": "componentId",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": { "204": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Delete a static component",
+        "tags": ["status-pages"]
+      }
+    },
+    "/api/v1/status-pages/{statusPageId}/static-components/{componentId}/overrides/{date}": {
+      "put": {
+        "operationId": "ManagementStaticComponentController_upsertOverride_v1",
+        "parameters": [
+          {
+            "name": "componentId",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          },
+          {
+            "name": "date",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpsertDailyOverrideDto"
+              }
+            }
+          }
+        },
+        "responses": { "200": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Upsert a daily override for a static component",
+        "tags": ["status-pages"]
+      },
+      "get": {
+        "operationId": "ManagementStaticComponentController_getOverride_v1",
+        "parameters": [
+          {
+            "name": "componentId",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          },
+          {
+            "name": "date",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": { "200": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Get a daily override for a static component",
+        "tags": ["status-pages"]
+      }
+    },
+    "/api/v1/status-pages/{statusPageId}/incidents/health-score": {
+      "get": {
+        "operationId": "ManagementIncidentController_getHealthScoreEndpoint_v1",
+        "parameters": [
+          {
+            "name": "statusPageId",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          },
+          {
+            "name": "timeRange",
+            "required": false,
+            "in": "query",
+            "description": "24h | 7d | 30d",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": { "200": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Get health score for a status page",
+        "tags": ["status-pages"]
+      }
+    },
+    "/api/v1/status-pages/{statusPageId}/incidents": {
+      "get": {
+        "operationId": "ManagementIncidentController_list_v1",
+        "parameters": [
+          {
+            "name": "statusPageId",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          },
+          {
+            "name": "active",
+            "required": false,
+            "in": "query",
+            "description": "If true, return only active (non-resolved) incidents",
+            "schema": { "type": "string" }
+          },
+          {
+            "name": "page",
+            "required": true,
+            "in": "query",
+            "schema": { "type": "string" }
+          },
+          {
+            "name": "limit",
+            "required": true,
+            "in": "query",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": { "200": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "List incidents for a status page (management)",
+        "tags": ["status-pages"]
+      },
+      "post": {
+        "operationId": "ManagementIncidentController_create_v1",
+        "parameters": [
+          {
+            "name": "statusPageId",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/CreateIncidentDto" }
+            }
+          }
+        },
+        "responses": { "201": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Create an incident",
+        "tags": ["status-pages"]
+      }
+    },
+    "/api/v1/status-pages/{statusPageId}/incidents/{incidentId}": {
+      "get": {
+        "operationId": "ManagementIncidentController_getOne_v1",
+        "parameters": [
+          {
+            "name": "statusPageId",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          },
+          {
+            "name": "incidentId",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": { "200": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Get a specific incident with all updates (management)",
+        "tags": ["status-pages"]
+      },
+      "patch": {
+        "operationId": "ManagementIncidentController_update_v1",
+        "parameters": [
+          {
+            "name": "statusPageId",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          },
+          {
+            "name": "incidentId",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/UpdateIncidentDto" }
+            }
+          }
+        },
+        "responses": { "200": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Update an incident",
+        "tags": ["status-pages"]
+      },
+      "delete": {
+        "operationId": "ManagementIncidentController_remove_v1",
+        "parameters": [
+          {
+            "name": "statusPageId",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          },
+          {
+            "name": "incidentId",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": { "204": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Delete an incident",
+        "tags": ["status-pages"]
+      }
+    },
+    "/api/v1/status-pages/{statusPageId}/incidents/{incidentId}/resolve": {
+      "post": {
+        "operationId": "ManagementIncidentController_resolve_v1",
+        "parameters": [
+          {
+            "name": "statusPageId",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          },
+          {
+            "name": "incidentId",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": { "201": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Resolve an incident",
+        "tags": ["status-pages"]
+      }
+    },
+    "/api/v1/status-pages/{statusPageId}/incidents/{incidentId}/updates": {
+      "post": {
+        "operationId": "ManagementIncidentController_addUpdate_v1",
+        "parameters": [
+          {
+            "name": "statusPageId",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          },
+          {
+            "name": "incidentId",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/AddIncidentUpdateDto" }
+            }
+          }
+        },
+        "responses": { "201": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Add an update to an incident",
+        "tags": ["status-pages"]
+      }
+    },
+    "/api/v1/status-pages/{statusPageId}/maintenance": {
+      "get": {
+        "operationId": "ManagementMaintenanceController_list_v1",
+        "parameters": [
+          {
+            "name": "statusPageId",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          },
+          {
+            "name": "status",
+            "required": false,
+            "in": "query",
+            "description": "scheduled | in_progress | completed | cancelled",
+            "schema": { "type": "string" }
+          },
+          {
+            "name": "page",
+            "required": false,
+            "in": "query",
+            "schema": { "type": "string" }
+          },
+          {
+            "name": "limit",
+            "required": false,
+            "in": "query",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": { "200": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "List maintenance windows for a status page (management)",
+        "tags": ["status-pages"]
+      },
+      "post": {
+        "operationId": "ManagementMaintenanceController_create_v1",
+        "parameters": [
+          {
+            "name": "statusPageId",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/CreateMaintenanceDto" }
+            }
+          }
+        },
+        "responses": { "201": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Create a maintenance window",
+        "tags": ["status-pages"]
+      }
+    },
+    "/api/v1/status-pages/{statusPageId}/maintenance/{maintenanceId}": {
+      "get": {
+        "operationId": "ManagementMaintenanceController_getOne_v1",
+        "parameters": [
+          {
+            "name": "statusPageId",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          },
+          {
+            "name": "maintenanceId",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": { "200": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Get a maintenance window by ID (management)",
+        "tags": ["status-pages"]
+      },
+      "patch": {
+        "operationId": "ManagementMaintenanceController_update_v1",
+        "parameters": [
+          {
+            "name": "statusPageId",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          },
+          {
+            "name": "maintenanceId",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/UpdateMaintenanceDto" }
+            }
+          }
+        },
+        "responses": { "200": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Update a maintenance window",
+        "tags": ["status-pages"]
+      },
+      "delete": {
+        "operationId": "ManagementMaintenanceController_remove_v1",
+        "parameters": [
+          {
+            "name": "statusPageId",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          },
+          {
+            "name": "maintenanceId",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": { "204": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Delete a maintenance window",
+        "tags": ["status-pages"]
+      }
+    },
+    "/api/v1/status-pages/{statusPageId}/maintenance/{maintenanceId}/updates": {
+      "post": {
+        "operationId": "ManagementMaintenanceController_addUpdate_v1",
+        "parameters": [
+          {
+            "name": "statusPageId",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          },
+          {
+            "name": "maintenanceId",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddMaintenanceUpdateDto"
+              }
+            }
+          }
+        },
+        "responses": { "201": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Add an update to a maintenance window",
+        "tags": ["status-pages"]
+      }
+    },
+    "/api/v1/status-pages/{statusPageId}/maintenance/{maintenanceId}/start": {
+      "post": {
+        "operationId": "ManagementMaintenanceController_start_v1",
+        "parameters": [
+          {
+            "name": "statusPageId",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          },
+          {
+            "name": "maintenanceId",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": { "201": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Mark a maintenance window as in progress",
+        "tags": ["status-pages"]
+      }
+    },
+    "/api/v1/status-pages/{statusPageId}/maintenance/{maintenanceId}/complete": {
+      "post": {
+        "operationId": "ManagementMaintenanceController_complete_v1",
+        "parameters": [
+          {
+            "name": "statusPageId",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          },
+          {
+            "name": "maintenanceId",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": { "201": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Mark a maintenance window as completed",
+        "tags": ["status-pages"]
+      }
+    },
+    "/api/v1/status-pages/{statusPageId}/maintenance/{maintenanceId}/cancel": {
+      "post": {
+        "operationId": "ManagementMaintenanceController_cancel_v1",
+        "parameters": [
+          {
+            "name": "statusPageId",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          },
+          {
+            "name": "maintenanceId",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": { "201": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Cancel a maintenance window",
+        "tags": ["status-pages"]
+      }
+    },
+    "/api/v1/status-pages/{statusPageId}/subscriptions": {
+      "get": {
+        "operationId": "ManagementStatusPageSubscriptionController_list_v1",
+        "parameters": [
+          {
+            "name": "statusPageId",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          },
+          {
+            "name": "page",
+            "required": false,
+            "in": "query",
+            "schema": { "type": "number" }
+          },
+          {
+            "name": "limit",
+            "required": false,
+            "in": "query",
+            "schema": { "type": "number" }
+          }
+        ],
+        "responses": { "200": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "List subscribers for a status page",
+        "tags": ["status-pages"]
+      }
+    },
+    "/api/v1/status-pages/{statusPageId}/subscriptions/{subscriptionId}": {
+      "delete": {
+        "operationId": "ManagementStatusPageSubscriptionController_remove_v1",
+        "parameters": [
+          {
+            "name": "statusPageId",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          },
+          {
+            "name": "subscriptionId",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": { "204": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Remove a subscriber from a status page",
+        "tags": ["status-pages"]
+      }
+    },
+    "/api/v1/status-pages/{statusPageId}/subscriptions/export": {
+      "get": {
+        "operationId": "ManagementStatusPageSubscriptionController_exportCsv_v1",
+        "parameters": [
+          {
+            "name": "statusPageId",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": { "200": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Export subscribers as CSV",
+        "tags": ["status-pages"]
+      }
+    },
+    "/api/v1/status-pages/{statusPageId}/subscriptions/analytics": {
+      "get": {
+        "operationId": "ManagementStatusPageSubscriptionController_analytics_v1",
+        "parameters": [
+          {
+            "name": "statusPageId",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": { "200": { "description": "" } },
+        "security": [{ "bearer": [] }],
+        "summary": "Get subscription analytics for a status page",
+        "tags": ["status-pages"]
+      }
+    },
+    "/api/v1/leads": {
+      "post": {
+        "operationId": "LeadController_create_v1",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/CreateLeadDto" }
+            }
+          }
+        },
+        "responses": { "201": { "description": "" } },
+        "summary": "Capture lead — saves contact and sends welcome email",
+        "tags": ["Marketing"]
+      }
+    },
+    "/api/v1/site-health-scans": {
+      "post": {
+        "operationId": "SiteHealthScanController_create_v1",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateSiteHealthScanDto"
+              }
+            }
+          }
+        },
+        "responses": { "201": { "description": "" } },
+        "summary": "Create site health scan (async)",
+        "tags": ["Marketing"]
+      }
+    },
+    "/api/v1/site-health-scans/{id}": {
+      "get": {
+        "operationId": "SiteHealthScanController_getScan_v1",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": { "200": { "description": "" } },
+        "summary": "Get site health scan result",
+        "tags": ["Marketing"]
+      }
+    },
+    "/api/v1/platform-stats": {
+      "get": {
+        "operationId": "PlatformStatsController_getStats_v1",
+        "parameters": [],
+        "responses": { "200": { "description": "" } },
+        "summary": "Get platform-wide statistics (public)",
+        "tags": ["Marketing"]
+      }
+    }
+  },
+  "info": {
+    "title": "GetMonitor API",
+    "description": "Status Pages bounded context",
+    "version": "1.0",
+    "contact": {}
+  },
+  "tags": [],
+  "servers": [],
+  "components": {
+    "securitySchemes": {
+      "bearer": { "scheme": "bearer", "bearerFormat": "JWT", "type": "http" }
+    },
+    "schemas": {
+      "CreateOrganizationDto": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "slug": { "type": "string" },
+          "logo": { "type": "string" },
+          "email": { "type": "string" },
+          "phoneNumber": { "type": "string" }
+        },
+        "required": ["name", "slug"]
+      },
+      "UpdateOrganizationDto": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "logo": { "type": "string" },
+          "email": { "type": "string" },
+          "phoneNumber": { "type": "string" }
+        }
+      },
+      "UpdateOrganizationLanguageDto": {
+        "type": "object",
+        "properties": {
+          "language": { "type": "string", "enum": ["en-US", "pt-BR"] }
+        }
+      },
+      "InviteMemberDto": {
+        "type": "object",
+        "properties": {
+          "email": { "type": "string" },
+          "role": { "type": "string", "enum": ["member", "page_guest"] }
+        },
+        "required": ["email", "role"]
+      },
+      "UpdateMemberRoleDto": {
+        "type": "object",
+        "properties": {
+          "role": { "type": "string", "enum": ["member", "page_guest"] }
+        },
+        "required": ["role"]
+      },
+      "CheckEmailDto": {
+        "type": "object",
+        "properties": { "email": { "type": "string" } },
+        "required": ["email"]
+      },
+      "CreateUserWithOrganizationDto": {
+        "type": "object",
+        "properties": {
+          "fullName": { "type": "string" },
+          "email": { "type": "string" },
+          "companyName": { "type": "string" },
+          "language": { "type": "string", "enum": ["en-US", "pt-BR"] }
+        },
+        "required": ["fullName", "email", "companyName"]
+      },
+      "UpdateUserDto": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "image": { "type": "string" }
+        }
+      },
+      "UpdateUserLanguageDto": {
+        "type": "object",
+        "properties": {
+          "language": { "type": "string", "enum": ["en-US", "pt-BR"] }
+        }
+      },
+      "DeleteAccountDto": {
+        "type": "object",
+        "properties": {
+          "password": { "type": "string" },
+          "callbackURL": { "type": "string" }
+        }
+      },
+      "RecordUploadDto": {
+        "type": "object",
+        "properties": {
+          "url": { "type": "string" },
+          "filename": { "type": "string" },
+          "size": { "type": "number" },
+          "type": {
+            "type": "string",
+            "enum": ["profile", "logo", "status-page"]
+          },
+          "entityId": { "type": "string" },
+          "entityType": {
+            "type": "string",
+            "enum": ["user", "organization", "status_page"]
+          }
+        },
+        "required": [
+          "url",
+          "filename",
+          "size",
+          "type",
+          "entityId",
+          "entityType"
+        ]
+      },
+      "DeleteImageDto": {
+        "type": "object",
+        "properties": {
+          "url": { "type": "string" },
+          "entityType": {
+            "type": "string",
+            "enum": ["user", "organization", "status_page"]
+          },
+          "entityId": { "type": "string" }
+        },
+        "required": ["url", "entityType", "entityId"]
+      },
+      "ReplaceImageDto": {
+        "type": "object",
+        "properties": {
+          "oldUrl": { "type": "string" },
+          "newUrl": { "type": "string" },
+          "entityType": {
+            "type": "string",
+            "enum": ["user", "organization", "status_page"]
+          },
+          "entityId": { "type": "string" }
+        },
+        "required": ["newUrl", "entityType", "entityId"]
+      },
+      "UpdateEntityImageDto": {
+        "type": "object",
+        "properties": {
+          "entityType": {
+            "type": "string",
+            "enum": ["user", "organization", "status_page"]
+          },
+          "entityId": { "type": "string" },
+          "imageUrl": { "type": "object" }
+        },
+        "required": ["entityType", "entityId"]
+      },
+      "AccountDto": {
+        "type": "object",
+        "properties": {
+          "fullName": { "type": "string" },
+          "email": { "type": "string" },
+          "companyName": { "type": "string" },
+          "organizationSlug": { "type": "string" }
+        },
+        "required": ["fullName", "email", "companyName", "organizationSlug"]
+      },
+      "MonitoringDto": {
+        "type": "object",
+        "properties": {
+          "monitoringUrl": { "type": "string" },
+          "contactEmail": { "type": "string" },
+          "contactPhone": { "type": "string" }
+        },
+        "required": ["monitoringUrl", "contactEmail"]
+      },
+      "StatusPageDto": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "domain": { "type": "string" },
+          "visibility": { "type": "string", "enum": ["public", "private"] },
+          "logoUrl": { "type": "string" }
+        },
+        "required": ["name", "domain", "visibility"]
+      },
+      "TeamMemberDto": {
+        "type": "object",
+        "properties": {
+          "email": { "type": "string" },
+          "role": { "type": "string", "enum": ["member", "page_guest"] }
+        },
+        "required": ["email", "role"]
+      },
+      "CompleteOnboardingDto": {
+        "type": "object",
+        "properties": {
+          "account": { "$ref": "#/components/schemas/AccountDto" },
+          "monitoring": { "$ref": "#/components/schemas/MonitoringDto" },
+          "statusPage": { "$ref": "#/components/schemas/StatusPageDto" },
+          "team": {
+            "type": "array",
+            "items": { "$ref": "#/components/schemas/TeamMemberDto" }
+          }
+        },
+        "required": ["account", "monitoring"]
+      },
+      "HeaderDto": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "value": { "type": "string" }
+        },
+        "required": ["name", "value"]
+      },
+      "UpdateUptimeMonitorDto": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "targetUrl": { "type": "string" },
+          "checkType": { "type": "string", "enum": ["UPTIME", "CONTENT"] },
+          "expectedResponseCode": { "type": "string" },
+          "followRedirects": { "type": "boolean" },
+          "contentAlert": { "type": "string", "enum": ["NOT_FOUND", "FOUND"] },
+          "content": { "type": "string" },
+          "body": { "type": "object" },
+          "timeout": { "type": "string" },
+          "alertSensitivity": { "type": "string" },
+          "httpMethod": { "type": "string" },
+          "headers": {
+            "type": "array",
+            "items": { "$ref": "#/components/schemas/HeaderDto" }
+          },
+          "username": { "type": "string" },
+          "password": { "type": "string" },
+          "regions": { "type": "array", "items": { "type": "string" } }
+        }
+      },
+      "CreateUptimeMonitorDto": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "targetUrl": { "type": "string" },
+          "checkType": { "type": "string", "enum": ["UPTIME", "CONTENT"] },
+          "expectedResponseCode": { "type": "string" },
+          "followRedirects": { "type": "boolean" },
+          "contentAlert": { "type": "string", "enum": ["NOT_FOUND", "FOUND"] },
+          "content": { "type": "string" },
+          "body": { "type": "object" },
+          "timeout": { "type": "string" },
+          "alertSensitivity": { "type": "string" },
+          "httpMethod": { "type": "string" },
+          "headers": {
+            "type": "array",
+            "items": { "$ref": "#/components/schemas/HeaderDto" }
+          },
+          "username": { "type": "string" },
+          "password": { "type": "string" },
+          "regions": { "type": "array", "items": { "type": "string" } }
+        },
+        "required": [
+          "name",
+          "targetUrl",
+          "checkType",
+          "followRedirects",
+          "regions"
+        ]
+      },
+      "CreateHeartbeatDto": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "description": { "type": "string" },
+          "intervalSeconds": {
+            "type": "number",
+            "minimum": 60,
+            "maximum": 604800,
+            "description": "1 minute to 7 days in seconds"
+          },
+          "gracePeriodSeconds": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 3600
+          }
+        },
+        "required": ["name", "intervalSeconds", "gracePeriodSeconds"]
+      },
+      "UpdateHeartbeatDto": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "description": { "type": "string" },
+          "intervalSeconds": {
+            "type": "number",
+            "minimum": 60,
+            "maximum": 604800,
+            "description": "1 minute to 7 days in seconds"
+          },
+          "gracePeriodSeconds": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 3600
+          }
+        }
+      },
+      "PauseHeartbeatDto": {
+        "type": "object",
+        "properties": {
+          "hours": {
+            "type": "number",
+            "minimum": 1,
+            "maximum": 168,
+            "description": "Hours to pause (1–168)"
+          }
+        },
+        "required": ["hours"]
+      },
+      "CreateOnCallTeamDto": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "description": { "type": "string" }
+        },
+        "required": ["name"]
+      },
+      "UpdateOnCallTeamDto": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "description": { "type": "string" }
+        }
+      },
+      "CreateOnCallMemberDto": {
+        "type": "object",
+        "properties": { "name": { "type": "string" } },
+        "required": ["name"]
+      },
+      "UpdateOnCallMemberDto": {
+        "type": "object",
+        "properties": { "name": { "type": "string" } }
+      },
+      "CreateOnCallPolicyDto": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "channelType": {
+            "type": "string",
+            "enum": [
+              "email",
+              "sms",
+              "whatsapp",
+              "webhook",
+              "slack",
+              "discord",
+              "telegram",
+              "teams"
+            ]
+          },
+          "config": { "type": "object" },
+          "teamId": { "type": "string" },
+          "thresholdMinutes": { "type": "number" }
+        },
+        "required": ["name", "thresholdMinutes"]
+      },
+      "UpdateOnCallPolicyDto": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "channelType": {
+            "type": "string",
+            "enum": [
+              "email",
+              "sms",
+              "whatsapp",
+              "webhook",
+              "slack",
+              "discord",
+              "telegram",
+              "teams"
+            ]
+          },
+          "config": { "type": "object" },
+          "teamId": { "type": "object" },
+          "thresholdMinutes": { "type": "number" }
+        }
+      },
+      "CreateOnCallChannelDto": {
+        "type": "object",
+        "properties": {
+          "memberId": { "type": "string" },
+          "type": { "type": "string" },
+          "config": { "type": "object" }
+        },
+        "required": ["type", "config"]
+      },
+      "UpdateOnCallChannelDto": {
+        "type": "object",
+        "properties": {
+          "config": { "type": "object" },
+          "isEnabled": { "type": "boolean" }
+        }
+      },
+      "AssignOnCallPolicyDto": {
+        "type": "object",
+        "properties": { "policyId": { "type": "string" } },
+        "required": ["policyId"]
+      },
+      "ToggleOnCallPolicyDto": {
+        "type": "object",
+        "properties": { "isEnabled": { "type": "boolean" } },
+        "required": ["isEnabled"]
+      },
+      "CreateInstallationDto": {
+        "type": "object",
+        "properties": {
+          "appId": { "type": "string" },
+          "connectionMetadata": { "type": "object" }
+        },
+        "required": ["appId"]
+      },
+      "UpdateInstallationConfigDto": {
+        "type": "object",
+        "properties": { "connectionMetadata": { "type": "object" } },
+        "required": ["connectionMetadata"]
+      },
+      "CreateDestinationConfigDto": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "destinationType": { "type": "string" },
+          "config": { "type": "object" }
+        },
+        "required": ["name", "destinationType", "config"]
+      },
+      "UpdateDestinationConfigDto": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "config": { "type": "object" },
+          "isEnabled": { "type": "boolean" }
+        }
+      },
+      "PreviewTemplateDto": {
+        "type": "object",
+        "properties": {
+          "template": { "type": "string" },
+          "variables": { "type": "object" }
+        },
+        "required": ["template", "variables"]
+      },
+      "CreateSubscriptionDto": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "description": "Email address for notifications"
+          },
+          "slackWebhookUrl": {
+            "type": "string",
+            "description": "Slack webhook URL"
+          },
+          "subscriptionType": { "type": "string", "enum": ["all", "specific"] },
+          "monitorIds": {
+            "description": "Monitor IDs for specific subscriptions",
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        },
+        "required": ["subscriptionType"]
+      },
+      "TokenDto": {
+        "type": "object",
+        "properties": {
+          "token": {
+            "type": "string",
+            "description": "Confirmation token received via email",
+            "example": "uuid-v4-token"
+          }
+        },
+        "required": ["token"]
+      },
+      "UnsubscribeDto": {
+        "type": "object",
+        "properties": {
+          "token": {
+            "type": "string",
+            "description": "Unsubscribe token received via email"
+          }
+        },
+        "required": ["token"]
+      },
+      "SetCustomDomainDto": {
+        "type": "object",
+        "properties": {
+          "domain": {
+            "type": "string",
+            "description": "The custom domain to set (e.g. status.example.com)"
+          }
+        },
+        "required": ["domain"]
+      },
+      "UpdateCustomizationDto": {
+        "type": "object",
+        "properties": {
+          "primaryColor": { "type": "string" },
+          "accentColor": { "type": "string" },
+          "backgroundColor": { "type": "string" },
+          "foregroundColor": { "type": "string" },
+          "primaryForegroundColor": { "type": "string" },
+          "cardColor": { "type": "string" },
+          "cardForegroundColor": { "type": "string" },
+          "mutedColor": { "type": "string" },
+          "mutedForegroundColor": { "type": "string" },
+          "borderColor": { "type": "string" },
+          "textColor": { "type": "string" },
+          "useDarkTheme": { "type": "boolean" },
+          "showSubscriptionButton": { "type": "boolean" },
+          "showRecentUpdatesSection": { "type": "boolean" },
+          "hideHeaderName": { "type": "boolean" },
+          "shadowStyle": { "type": "string" },
+          "borderRadiusStyle": { "type": "string" },
+          "defaultLanguage": { "type": "string" },
+          "headerDisplayName": { "type": "string" },
+          "customCss": { "type": "string" },
+          "customHeaderHtml": { "type": "string" },
+          "customFooterHtml": { "type": "string" }
+        }
+      },
+      "CreateStatusPageDto": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "description": { "type": "string" },
+          "visibility": { "type": "string", "enum": ["public", "private"] },
+          "domain": {
+            "type": "string",
+            "description": "Subdomain slug (lowercase letters, numbers, hyphens)"
+          }
+        },
+        "required": ["name", "visibility", "domain"]
+      },
+      "UpdateStatusPageDto": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string", "example": "My Status Page" },
+          "description": { "type": "string" },
+          "logoUrl": { "type": "string" },
+          "visibility": { "type": "string", "enum": ["public", "private"] }
+        }
+      },
+      "CreateComponentGroupDto": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "parentId": { "type": "string" },
+          "sortOrder": { "type": "number" }
+        },
+        "required": ["name"]
+      },
+      "ReorderComponentGroupsDto": {
+        "type": "object",
+        "properties": {
+          "parentId": { "type": "string" },
+          "orderedIds": { "type": "array", "items": { "type": "string" } }
+        },
+        "required": ["orderedIds"]
+      },
+      "UpdateComponentGroupDto": {
+        "type": "object",
+        "properties": { "name": { "type": "string" } },
+        "required": ["name"]
+      },
+      "MoveComponentGroupDto": {
+        "type": "object",
+        "properties": {
+          "newParentId": { "type": "string" },
+          "sourceSiblingOrder": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "destinationSiblingOrder": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        },
+        "required": ["sourceSiblingOrder", "destinationSiblingOrder"]
+      },
+      "LinkMonitorDto": { "type": "object", "properties": {} },
+      "ReorderMonitorsDto": { "type": "object", "properties": {} },
+      "MoveMonitorDto": { "type": "object", "properties": {} },
+      "CreateStaticComponentDto": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "description": { "type": "string" },
+          "groupId": { "type": "string" },
+          "startDate": { "type": "string", "description": "YYYY-MM-DD" },
+          "displayUptime": { "type": "boolean" }
+        },
+        "required": ["name", "startDate", "displayUptime"]
+      },
+      "ReorderStaticComponentsDto": { "type": "object", "properties": {} },
+      "UpdateStaticComponentDto": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "description": { "type": "string" },
+          "groupId": { "type": "string" },
+          "startDate": { "type": "string", "description": "YYYY-MM-DD" },
+          "displayUptime": { "type": "boolean" }
+        }
+      },
+      "UpsertDailyOverrideDto": {
+        "type": "object",
+        "properties": {
+          "majorOutageMinutes": { "type": "number" },
+          "partialOutageMinutes": { "type": "number" }
+        },
+        "required": ["majorOutageMinutes", "partialOutageMinutes"]
+      },
+      "CreateIncidentDto": { "type": "object", "properties": {} },
+      "UpdateIncidentDto": { "type": "object", "properties": {} },
+      "AddIncidentUpdateDto": { "type": "object", "properties": {} },
+      "CreateMaintenanceDto": {
+        "type": "object",
+        "properties": {
+          "title": { "type": "string" },
+          "description": { "type": "string" },
+          "scheduledStartAt": { "type": "string" },
+          "scheduledEndAt": { "type": "string" }
+        },
+        "required": ["title", "scheduledStartAt", "scheduledEndAt"]
+      },
+      "UpdateMaintenanceDto": {
+        "type": "object",
+        "properties": {
+          "title": { "type": "string" },
+          "description": { "type": "string" },
+          "status": {
+            "type": "string",
+            "enum": ["scheduled", "in_progress", "completed", "cancelled"]
+          },
+          "scheduledStartAt": { "type": "string" },
+          "scheduledEndAt": { "type": "string" }
+        }
+      },
+      "AddMaintenanceUpdateDto": {
+        "type": "object",
+        "properties": {
+          "content": { "type": "string" },
+          "status": {
+            "type": "string",
+            "enum": ["scheduled", "in_progress", "completed", "cancelled"]
+          }
+        },
+        "required": ["content", "status"]
+      },
+      "CreateLeadDto": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "email": { "type": "string" },
+          "role": { "type": "string" },
+          "company": { "type": "string" }
+        },
+        "required": ["name", "email", "role", "company"]
+      },
+      "CreateSiteHealthScanDto": {
+        "type": "object",
+        "properties": {
+          "url": { "type": "string", "example": "https://example.com" }
+        },
+        "required": ["url"]
+      }
+    }
+  }
+}
