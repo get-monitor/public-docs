@@ -63,11 +63,171 @@
         "tab": "API",
         "groups": [
           {
+            "group": "App",
+            "pages": [
+              "api-reference/app/get-hello",
+              "api-reference/app/health-check"
+            ]
+          },
+          {
+            "group": "Organizations",
+            "pages": [
+              "api-reference/organizations/check-slug",
+              "api-reference/organizations/create-organization",
+              "api-reference/organizations/list-organizations",
+              "api-reference/organizations/list-guest-access",
+              "api-reference/organizations/get-user-roles",
+              "api-reference/organizations/get-organization",
+              "api-reference/organizations/update-organization",
+              "api-reference/organizations/update-language",
+              "api-reference/organizations/get-status",
+              "api-reference/organizations/list-members",
+              "api-reference/organizations/invite-member",
+              "api-reference/organizations/remove-member",
+              "api-reference/organizations/update-member-role",
+              "api-reference/organizations/list-invitations"
+            ]
+          },
+          {
+            "group": "Invitations",
+            "pages": [
+              "api-reference/invitations/get-invitation",
+              "api-reference/invitations/accept-invitation"
+            ]
+          },
+          {
+            "group": "Users",
+            "pages": [
+              "api-reference/users/check-email",
+              "api-reference/users/create-with-organization",
+              "api-reference/users/get-me",
+              "api-reference/users/update-me",
+              "api-reference/users/delete-me",
+              "api-reference/users/update-language",
+              "api-reference/users/accept-migration",
+              "api-reference/users/list-sessions",
+              "api-reference/users/revoke-all-sessions",
+              "api-reference/users/revoke-session",
+              "api-reference/users/list-accounts",
+              "api-reference/users/delete-account",
+              "api-reference/users/get-user"
+            ]
+          },
+          {
+            "group": "Images",
+            "pages": [
+              "api-reference/images/record-upload",
+              "api-reference/images/delete-image",
+              "api-reference/images/replace-image",
+              "api-reference/images/get-placeholder",
+              "api-reference/images/get-constraints",
+              "api-reference/images/update-entity-image",
+              "api-reference/images/cleanup"
+            ]
+          },
+          {
+            "group": "Onboarding",
+            "pages": [
+              "api-reference/onboarding/complete-onboarding"
+            ]
+          },
+          {
+            "group": "Uptime",
+            "pages": [
+              "api-reference/uptime/list-uptime-monitors",
+              "api-reference/uptime/create-uptime-monitor",
+              "api-reference/uptime/get-uptime-monitor",
+              "api-reference/uptime/update-uptime-monitor",
+              "api-reference/uptime/delete-uptime-monitor",
+              "api-reference/uptime/get-statistics",
+              "api-reference/uptime/get-uptime-logs",
+              "api-reference/uptime/get-status-page-uptime"
+            ]
+          },
+          {
+            "group": "Monitors",
+            "pages": [
+              "api-reference/monitors/list-monitors",
+              "api-reference/monitors/get-organization-statistics",
+              "api-reference/monitors/get-monitor",
+              "api-reference/monitors/get-status-page-statistics"
+            ]
+          },
+          {
+            "group": "Heartbeats",
+            "pages": [
+              "api-reference/heartbeats/list-heartbeats",
+              "api-reference/heartbeats/create-heartbeat",
+              "api-reference/heartbeats/get-heartbeat",
+              "api-reference/heartbeats/update-heartbeat",
+              "api-reference/heartbeats/delete-heartbeat",
+              "api-reference/heartbeats/regenerate-token",
+              "api-reference/heartbeats/pause-heartbeat",
+              "api-reference/heartbeats/unpause-heartbeat"
+            ]
+          },
+          {
+            "group": "On-Call",
+            "pages": [
+              "api-reference/on-call/list-teams",
+              "api-reference/on-call/create-team",
+              "api-reference/on-call/get-team",
+              "api-reference/on-call/update-team",
+              "api-reference/on-call/delete-team",
+              "api-reference/on-call/add-member",
+              "api-reference/on-call/update-member",
+              "api-reference/on-call/remove-member",
+              "api-reference/on-call/activate-member",
+              "api-reference/on-call/list-channels",
+              "api-reference/on-call/add-channel",
+              "api-reference/on-call/update-channel",
+              "api-reference/on-call/delete-channel",
+              "api-reference/on-call/list-policies",
+              "api-reference/on-call/create-policy",
+              "api-reference/on-call/get-type-counts",
+              "api-reference/on-call/get-policy",
+              "api-reference/on-call/update-policy",
+              "api-reference/on-call/delete-policy",
+              "api-reference/on-call/get-monitor-policies",
+              "api-reference/on-call/assign-policy",
+              "api-reference/on-call/toggle-policy",
+              "api-reference/on-call/unassign-policy",
+              "api-reference/on-call/list-notifications",
+              "api-reference/on-call/get-graph",
+              "api-reference/on-call/migrate"
+            ]
+          },
+          {
+            "group": "Integrations",
+            "pages": [
+              "api-reference/integrations/list-apps",
+              "api-reference/integrations/get-app-counts",
+              "api-reference/integrations/get-app",
+              "api-reference/integrations/list-installations",
+              "api-reference/integrations/create-installation",
+              "api-reference/integrations/get-installation",
+              "api-reference/integrations/update-installation",
+              "api-reference/integrations/disable-installation",
+              "api-reference/integrations/get-installation-health",
+              "api-reference/integrations/reconnect-installation",
+              "api-reference/integrations/list-destination-configs",
+              "api-reference/integrations/create-destination-config",
+              "api-reference/integrations/update-destination-config",
+              "api-reference/integrations/delete-destination-config",
+              "api-reference/integrations/preview-template",
+              "api-reference/integrations/test-destination-config",
+              "api-reference/integrations/receive-webhook"
+            ]
+          },
+          {
             "group": "Status Pages",
             "pages": [
-              "api-reference/status-pages/get-status-page",
-              "api-reference/status-pages/get-status",
+              "api-reference/status-pages/resolve-status-page",
+              "api-reference/status-pages/get-aggregate-status",
+              "api-reference/status-pages/check-slug-availability",
               "api-reference/status-pages/get-customization",
+              "api-reference/status-pages/update-customization",
+              "api-reference/status-pages/reset-customization",
               "api-reference/status-pages/get-monitors",
               "api-reference/status-pages/get-components",
               "api-reference/status-pages/get-monitor-aggregations",
@@ -76,13 +236,78 @@
               "api-reference/status-pages/get-maintenance",
               "api-reference/status-pages/get-maintenance-event",
               "api-reference/status-pages/get-status-updates",
-              "api-reference/status-pages/get-badge"
+              "api-reference/status-pages/get-badge",
+              "api-reference/status-pages/get-badge-config",
+              "api-reference/status-pages/set-custom-domain",
+              "api-reference/status-pages/remove-custom-domain",
+              "api-reference/status-pages/verify-custom-domain",
+              "api-reference/status-pages/check-domain-verification",
+              "api-reference/status-pages/get-subscription",
+              "api-reference/status-pages/get-subscription-usage",
+              "api-reference/status-pages/list-status-pages",
+              "api-reference/status-pages/create-status-page",
+              "api-reference/status-pages/get-status-page",
+              "api-reference/status-pages/delete-status-page",
+              "api-reference/status-pages/update-status-page",
+              "api-reference/status-pages/list-component-groups",
+              "api-reference/status-pages/create-component-group",
+              "api-reference/status-pages/reorder-component-groups",
+              "api-reference/status-pages/update-component-group",
+              "api-reference/status-pages/delete-component-group",
+              "api-reference/status-pages/move-component-group",
+              "api-reference/status-pages/link-monitor",
+              "api-reference/status-pages/unlink-monitor",
+              "api-reference/status-pages/list-grouped-monitors",
+              "api-reference/status-pages/reorder-monitors",
+              "api-reference/status-pages/move-monitor-to-group",
+              "api-reference/status-pages/list-static-components",
+              "api-reference/status-pages/create-static-component",
+              "api-reference/status-pages/reorder-static-components",
+              "api-reference/status-pages/update-static-component",
+              "api-reference/status-pages/delete-static-component",
+              "api-reference/status-pages/upsert-daily-override",
+              "api-reference/status-pages/get-daily-override",
+              "api-reference/status-pages/get-health-score",
+              "api-reference/status-pages/list-incidents",
+              "api-reference/status-pages/create-incident",
+              "api-reference/status-pages/get-incident-management",
+              "api-reference/status-pages/update-incident",
+              "api-reference/status-pages/delete-incident",
+              "api-reference/status-pages/resolve-incident",
+              "api-reference/status-pages/add-incident-update",
+              "api-reference/status-pages/list-maintenance",
+              "api-reference/status-pages/create-maintenance",
+              "api-reference/status-pages/get-maintenance-management",
+              "api-reference/status-pages/update-maintenance",
+              "api-reference/status-pages/delete-maintenance",
+              "api-reference/status-pages/add-maintenance-update",
+              "api-reference/status-pages/start-maintenance",
+              "api-reference/status-pages/complete-maintenance",
+              "api-reference/status-pages/cancel-maintenance",
+              "api-reference/status-pages/list-subscribers",
+              "api-reference/status-pages/remove-subscriber",
+              "api-reference/status-pages/export-subscribers",
+              "api-reference/status-pages/get-subscription-analytics"
             ]
           },
           {
             "group": "Subscriptions",
             "pages": [
-              "api-reference/subscriptions/get-usage"
+              "api-reference/subscriptions/create-subscription",
+              "api-reference/subscriptions/get-verification",
+              "api-reference/subscriptions/verify-token",
+              "api-reference/subscriptions/confirm-subscription",
+              "api-reference/subscriptions/unsubscribe",
+              "api-reference/subscriptions/list-plans"
+            ]
+          },
+          {
+            "group": "Marketing",
+            "pages": [
+              "api-reference/marketing/create-lead",
+              "api-reference/marketing/create-site-health-scan",
+              "api-reference/marketing/get-site-health-scan",
+              "api-reference/marketing/get-platform-stats"
             ]
           }
         ]
