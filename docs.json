@@ -65,70 +65,22 @@
           {
             "group": "App",
             "pages": [
-              "api-reference/app/get-hello",
               "api-reference/app/health-check"
             ]
           },
           {
             "group": "Organizations",
             "pages": [
-              "api-reference/organizations/check-slug",
               "api-reference/organizations/create-organization",
               "api-reference/organizations/list-organizations",
-              "api-reference/organizations/list-guest-access",
-              "api-reference/organizations/get-user-roles",
               "api-reference/organizations/get-organization",
               "api-reference/organizations/update-organization",
-              "api-reference/organizations/update-language",
               "api-reference/organizations/get-status",
               "api-reference/organizations/list-members",
               "api-reference/organizations/invite-member",
               "api-reference/organizations/remove-member",
               "api-reference/organizations/update-member-role",
               "api-reference/organizations/list-invitations"
-            ]
-          },
-          {
-            "group": "Invitations",
-            "pages": [
-              "api-reference/invitations/get-invitation",
-              "api-reference/invitations/accept-invitation"
-            ]
-          },
-          {
-            "group": "Users",
-            "pages": [
-              "api-reference/users/check-email",
-              "api-reference/users/create-with-organization",
-              "api-reference/users/get-me",
-              "api-reference/users/update-me",
-              "api-reference/users/delete-me",
-              "api-reference/users/update-language",
-              "api-reference/users/accept-migration",
-              "api-reference/users/list-sessions",
-              "api-reference/users/revoke-all-sessions",
-              "api-reference/users/revoke-session",
-              "api-reference/users/list-accounts",
-              "api-reference/users/delete-account",
-              "api-reference/users/get-user"
-            ]
-          },
-          {
-            "group": "Images",
-            "pages": [
-              "api-reference/images/record-upload",
-              "api-reference/images/delete-image",
-              "api-reference/images/replace-image",
-              "api-reference/images/get-placeholder",
-              "api-reference/images/get-constraints",
-              "api-reference/images/update-entity-image",
-              "api-reference/images/cleanup"
-            ]
-          },
-          {
-            "group": "Onboarding",
-            "pages": [
-              "api-reference/onboarding/complete-onboarding"
             ]
           },
           {
@@ -184,7 +136,6 @@
               "api-reference/on-call/delete-channel",
               "api-reference/on-call/list-policies",
               "api-reference/on-call/create-policy",
-              "api-reference/on-call/get-type-counts",
               "api-reference/on-call/get-policy",
               "api-reference/on-call/update-policy",
               "api-reference/on-call/delete-policy",
@@ -192,16 +143,13 @@
               "api-reference/on-call/assign-policy",
               "api-reference/on-call/toggle-policy",
               "api-reference/on-call/unassign-policy",
-              "api-reference/on-call/list-notifications",
-              "api-reference/on-call/get-graph",
-              "api-reference/on-call/migrate"
+              "api-reference/on-call/list-notifications"
             ]
           },
           {
             "group": "Integrations",
             "pages": [
               "api-reference/integrations/list-apps",
-              "api-reference/integrations/get-app-counts",
               "api-reference/integrations/get-app",
               "api-reference/integrations/list-installations",
               "api-reference/integrations/create-installation",
@@ -209,14 +157,10 @@
               "api-reference/integrations/update-installation",
               "api-reference/integrations/disable-installation",
               "api-reference/integrations/get-installation-health",
-              "api-reference/integrations/reconnect-installation",
               "api-reference/integrations/list-destination-configs",
               "api-reference/integrations/create-destination-config",
               "api-reference/integrations/update-destination-config",
-              "api-reference/integrations/delete-destination-config",
-              "api-reference/integrations/preview-template",
-              "api-reference/integrations/test-destination-config",
-              "api-reference/integrations/receive-webhook"
+              "api-reference/integrations/delete-destination-config"
             ]
           },
           {
@@ -224,7 +168,6 @@
             "pages": [
               "api-reference/status-pages/resolve-status-page",
               "api-reference/status-pages/get-aggregate-status",
-              "api-reference/status-pages/check-slug-availability",
               "api-reference/status-pages/get-customization",
               "api-reference/status-pages/update-customization",
               "api-reference/status-pages/reset-customization",
@@ -242,8 +185,6 @@
               "api-reference/status-pages/remove-custom-domain",
               "api-reference/status-pages/verify-custom-domain",
               "api-reference/status-pages/check-domain-verification",
-              "api-reference/status-pages/get-subscription",
-              "api-reference/status-pages/get-subscription-usage",
               "api-reference/status-pages/list-status-pages",
               "api-reference/status-pages/create-status-page",
               "api-reference/status-pages/get-status-page",
@@ -297,17 +238,7 @@
               "api-reference/subscriptions/get-verification",
               "api-reference/subscriptions/verify-token",
               "api-reference/subscriptions/confirm-subscription",
-              "api-reference/subscriptions/unsubscribe",
-              "api-reference/subscriptions/list-plans"
-            ]
-          },
-          {
-            "group": "Marketing",
-            "pages": [
-              "api-reference/marketing/create-lead",
-              "api-reference/marketing/create-site-health-scan",
-              "api-reference/marketing/get-site-health-scan",
-              "api-reference/marketing/get-platform-stats"
+              "api-reference/subscriptions/unsubscribe"
             ]
           }
         ]
