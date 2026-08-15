@@ -35,7 +35,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Check slug availability",
@@ -65,7 +65,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Create organization",
@@ -83,7 +83,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "List enriched organizations for current user",
@@ -103,7 +103,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "List guest-access organizations for current user",
@@ -123,7 +123,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Get current user role in all orgs",
@@ -152,7 +152,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "List organization members",
@@ -181,7 +181,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "List organization invitations",
@@ -210,7 +210,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Get org with members and invitations",
@@ -247,7 +247,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Update organization",
@@ -274,7 +274,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Delete organization",
@@ -313,7 +313,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Update organization language",
@@ -342,7 +342,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Get organization resource counts",
@@ -381,7 +381,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Invite member to organization",
@@ -418,7 +418,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Remove member from organization",
@@ -465,7 +465,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Update member role",
@@ -494,7 +494,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Get invitation details (public)",
@@ -521,7 +521,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Cancel (revoke) a pending invitation",
@@ -550,10 +550,10 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           },
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Accept invitation",
@@ -583,7 +583,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Check if email is registered (public)",
@@ -613,7 +613,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Create user and organization (public onboarding)",
@@ -633,7 +633,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Get current user profile",
@@ -661,7 +661,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Update current user profile",
@@ -679,7 +679,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Delete current user account",
@@ -709,7 +709,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Update language preference",
@@ -729,7 +729,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Accept rebrand migration",
@@ -749,7 +749,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "List active sessions",
@@ -767,7 +767,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Revoke all other sessions",
@@ -796,7 +796,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Revoke specific session",
@@ -816,7 +816,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "List linked OAuth providers",
@@ -846,7 +846,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Unlink OAuth provider account",
@@ -875,7 +875,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Get user by ID (public)",
@@ -905,7 +905,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Record image upload metadata",
@@ -935,7 +935,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Delete image",
@@ -965,7 +965,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Replace image",
@@ -1010,7 +1010,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Get placeholder image URL",
@@ -1039,7 +1039,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Get image constraints by type",
@@ -1069,7 +1069,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Update entity image URL",
@@ -1089,7 +1089,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Cleanup null image references",
@@ -1143,7 +1143,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Get an uptime monitor by ID",
@@ -1180,7 +1180,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Update an uptime monitor",
@@ -1207,7 +1207,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Delete an uptime monitor",
@@ -1248,7 +1248,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Get statistics for a monitor",
@@ -1328,7 +1328,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Get paginated uptime logs (cursor-based)",
@@ -1348,7 +1348,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "List all monitors (all types, lightweight) for an organization",
@@ -1382,7 +1382,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Get aggregated statistics for all uptime monitors in an organization",
@@ -1411,7 +1411,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Get a monitor by ID (any type)",
@@ -1439,7 +1439,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "List uptime monitors for an organization",
@@ -1467,7 +1467,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Create an uptime monitor",
@@ -1509,7 +1509,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Get aggregated monitor statistics for a status page",
@@ -1538,7 +1538,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Get uptime monitors with metrics for a status page",
@@ -1567,7 +1567,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "List heartbeat monitors for an organization",
@@ -1595,7 +1595,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Create a heartbeat monitor",
@@ -1624,7 +1624,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Get a heartbeat monitor with recent pings",
@@ -1661,7 +1661,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Update a heartbeat monitor",
@@ -1688,7 +1688,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Delete a heartbeat monitor",
@@ -1717,7 +1717,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Regenerate heartbeat token",
@@ -1756,7 +1756,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Pause a heartbeat monitor for N hours",
@@ -1785,7 +1785,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Unpause a heartbeat monitor",
@@ -1818,7 +1818,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "List available integration apps",
@@ -1838,7 +1838,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Get app counts by type (source vs destination)",
@@ -1867,7 +1867,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Get a single integration app with its latest version",
@@ -1923,7 +1923,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "List installations for an organization",
@@ -1951,7 +1951,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Create or return existing installation for an app",
@@ -1980,7 +1980,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Get a single installation",
@@ -2017,7 +2017,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Update connection metadata for an installation",
@@ -2046,7 +2046,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Disable an installation",
@@ -2075,7 +2075,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Get installation health including sync state",
@@ -2104,7 +2104,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Initiate OAuth reconnect for an installation",
@@ -2133,7 +2133,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "List destination configs for an installation",
@@ -2170,7 +2170,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Create a destination config",
@@ -2217,7 +2217,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Update a destination config",
@@ -2252,7 +2252,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Delete a destination config",
@@ -2291,7 +2291,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Preview a Liquid template with provided variables",
@@ -2328,7 +2328,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Fire a test HTTP delivery to a destination config",
@@ -2497,7 +2497,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Update customization for a status page",
@@ -2524,7 +2524,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Reset customization to defaults",
@@ -3027,7 +3027,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Get badge configuration for a status page (management)",
@@ -3066,7 +3066,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Set a custom domain for this status page",
@@ -3093,7 +3093,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Remove the custom domain from this status page",
@@ -3122,7 +3122,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Trigger ownership verification for the custom domain",
@@ -3151,7 +3151,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Check current verification status of the custom domain",
@@ -3180,7 +3180,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "tags": [
@@ -3208,7 +3208,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "tags": [
@@ -3227,7 +3227,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "List status pages for the authenticated organization",
@@ -3255,7 +3255,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Create a new status page",
@@ -3284,7 +3284,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Get a single status page (management view)",
@@ -3311,7 +3311,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Delete a status page",
@@ -3350,7 +3350,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Update a status page",
@@ -3379,7 +3379,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "List component groups for a status page",
@@ -3416,7 +3416,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Create a component group",
@@ -3455,7 +3455,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Reorder component groups",
@@ -3502,7 +3502,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Update a component group",
@@ -3537,7 +3537,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Delete a component group",
@@ -3576,7 +3576,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Move a component group to a new parent",
@@ -3615,7 +3615,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Link a monitor to a status page",
@@ -3652,7 +3652,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Unlink a monitor from a status page",
@@ -3697,7 +3697,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Update a linked monitor's per-page display name",
@@ -3726,7 +3726,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "List monitors with group info for a status page",
@@ -3765,7 +3765,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Reorder monitors within a group",
@@ -3812,7 +3812,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Move a monitor to a different group",
@@ -3841,7 +3841,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "List static components for a status page",
@@ -3878,7 +3878,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Create a static component",
@@ -3917,7 +3917,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Reorder static components",
@@ -3964,7 +3964,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Update a static component",
@@ -3999,7 +3999,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Delete a static component",
@@ -4046,7 +4046,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Upsert a daily override for a static component",
@@ -4081,7 +4081,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Get a daily override for a static component",
@@ -4135,7 +4135,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "List maintenance windows for a status page (management)",
@@ -4172,7 +4172,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Create a maintenance window",
@@ -4209,7 +4209,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Get a maintenance window by ID (management)",
@@ -4254,7 +4254,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Update a maintenance window",
@@ -4289,7 +4289,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Delete a maintenance window",
@@ -4336,7 +4336,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Add an update to a maintenance window",
@@ -4373,7 +4373,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Mark a maintenance window as in progress",
@@ -4410,7 +4410,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Mark a maintenance window as completed",
@@ -4447,7 +4447,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Cancel a maintenance window",
@@ -4492,7 +4492,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "List subscribers for a status page",
@@ -4529,7 +4529,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Remove a subscriber from a status page",
@@ -4558,7 +4558,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Export subscribers as CSV",
@@ -4587,7 +4587,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Get subscription analytics for a status page",
@@ -4708,7 +4708,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Get on-call alert stats",
@@ -4742,7 +4742,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "List on-call alerts",
@@ -4771,7 +4771,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Acknowledge an on-call alert",
@@ -4800,7 +4800,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Resolve an on-call alert",
@@ -4841,7 +4841,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "List on-call routes",
@@ -4868,7 +4868,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Create an on-call route",
@@ -4897,7 +4897,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Delete an on-call route",
@@ -4936,7 +4936,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Update a rotation member",
@@ -4963,7 +4963,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Remove a rotation member",
@@ -5002,7 +5002,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Add a member to a rotation",
@@ -5041,7 +5041,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Update a rotation",
@@ -5068,7 +5068,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Delete a rotation",
@@ -5097,7 +5097,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "List rotations for a schedule",
@@ -5134,7 +5134,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Create a rotation for a schedule",
@@ -5163,7 +5163,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Delete a schedule override",
@@ -5201,7 +5201,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Get who is on call for a schedule",
@@ -5230,7 +5230,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "List schedule overrides",
@@ -5267,7 +5267,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Create a schedule override",
@@ -5286,7 +5286,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "List on-call schedules",
@@ -5315,7 +5315,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Get an on-call schedule",
@@ -5352,7 +5352,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Update an on-call schedule",
@@ -5371,7 +5371,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "List projects for the organization",
@@ -5398,7 +5398,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Create a project and its ingestion key",
@@ -5427,7 +5427,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Get a project",
@@ -5464,7 +5464,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Update a project",
@@ -5491,7 +5491,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Delete a project",
@@ -5520,7 +5520,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Rotate the project ingestion key",
@@ -5549,7 +5549,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "List source-map tokens for a project",
@@ -5586,7 +5586,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Create a source-map token for a project",
@@ -5623,7 +5623,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Revoke a source-map token",
@@ -5676,7 +5676,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "List response incidents",
@@ -5703,7 +5703,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Create a response incident",
@@ -5722,7 +5722,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Get incidents overview statistics for the org dashboard",
@@ -5751,7 +5751,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Get a response incident",
@@ -5788,7 +5788,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Update a response incident",
@@ -5817,7 +5817,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Resolve a response incident",
@@ -5846,7 +5846,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Close a response incident",
@@ -5885,7 +5885,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Assign a role on a response incident",
@@ -5922,7 +5922,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Remove a role assignment from a response incident",
@@ -5961,7 +5961,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Add a service to a response incident",
@@ -5998,7 +5998,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Remove a service from a response incident",
@@ -6037,7 +6037,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Assign incident type",
@@ -6076,7 +6076,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Publish a status page update from a response incident",
@@ -6105,7 +6105,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "List incident actions",
@@ -6142,7 +6142,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Create incident action",
@@ -6189,7 +6189,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Update incident action",
@@ -6224,7 +6224,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Delete incident action",
@@ -6253,7 +6253,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Generate an AI summary of the incident",
@@ -6282,7 +6282,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Draft an AI-generated status update for the incident",
@@ -6301,7 +6301,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "List custom field definitions",
@@ -6328,7 +6328,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Create custom field definition",
@@ -6357,7 +6357,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Delete custom field definition",
@@ -6386,7 +6386,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Get custom field values for incident",
@@ -6433,7 +6433,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Set custom field value for incident",
@@ -6462,7 +6462,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "List incident escalations",
@@ -6499,7 +6499,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Create escalation",
@@ -6518,7 +6518,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "List incident types",
@@ -6545,7 +6545,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Create incident type",
@@ -6584,7 +6584,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Update incident type",
@@ -6611,7 +6611,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Delete incident type",
@@ -6640,7 +6640,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Create and link a notebook for an incident",
@@ -6667,7 +6667,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Get the notebook linked to an incident",
@@ -6696,7 +6696,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "List incident participants",
@@ -6733,7 +6733,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Join incident (add participant)",
@@ -6770,7 +6770,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Leave incident (remove participant)",
@@ -6799,7 +6799,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "List related incidents",
@@ -6836,7 +6836,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Link a related incident",
@@ -6873,7 +6873,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Remove related incident link",
@@ -6918,7 +6918,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "List timeline events for a response incident",
@@ -6957,7 +6957,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Add a note to the timeline",
@@ -7002,7 +7002,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "List notebooks for the organization",
@@ -7029,7 +7029,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Create a notebook, optionally seeded from a template",
@@ -7058,7 +7058,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Create a notebook drafted from a free-text prompt via AI",
@@ -7087,7 +7087,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Get a notebook by id",
@@ -7124,7 +7124,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Update a notebook",
@@ -7151,7 +7151,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Delete a notebook",
@@ -7170,7 +7170,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "List system notebook templates",
@@ -7227,7 +7227,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "List status page updates",
@@ -7264,7 +7264,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Create a status page update",
@@ -7301,7 +7301,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Get a status page update",
@@ -7346,7 +7346,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Update a status page update",
@@ -7381,7 +7381,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Delete a status page update",
@@ -7434,7 +7434,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Get onboarding checklist progress for an organization",
@@ -7463,7 +7463,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "List teams with members for an organization",
@@ -7500,7 +7500,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Create a new team",
@@ -7547,7 +7547,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Update team name/description",
@@ -7582,7 +7582,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Delete a team",
@@ -7629,7 +7629,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Add an existing org member to a team",
@@ -7674,7 +7674,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Remove a member from a team",
@@ -7703,7 +7703,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Backfill org members without a team into the Default team",
@@ -7722,7 +7722,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "List contact methods for the current member",
@@ -7749,7 +7749,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Add a contact method for the current member",
@@ -7788,7 +7788,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Update a contact method",
@@ -7815,7 +7815,7 @@
         },
         "security": [
           {
-            "bearer": []
+            "apiKey": []
           }
         ],
         "summary": "Remove a contact method",
@@ -7839,10 +7839,10 @@
   ],
   "components": {
     "securitySchemes": {
-      "bearer": {
+      "apiKey": {
         "scheme": "bearer",
-        "bearerFormat": "JWT",
-        "type": "http"
+        "type": "http",
+        "description": "Organization API key, prefixed with `gm_api_`. Send it as `Authorization: Bearer <api_key>`."
       }
     },
     "schemas": {
