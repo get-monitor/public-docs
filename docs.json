@@ -63,24 +63,49 @@
         "tab": "API",
         "groups": [
           {
-            "group": "App",
-            "pages": [
-              "api-reference/app/health-check"
-            ]
-          },
-          {
             "group": "Organizations",
             "pages": [
+              "api-reference/organizations/check-slug",
+              "api-reference/organizations/resolve-by-slug",
               "api-reference/organizations/create-organization",
               "api-reference/organizations/list-organizations",
+              "api-reference/organizations/list-guest-access",
+              "api-reference/organizations/get-user-roles",
               "api-reference/organizations/get-organization",
               "api-reference/organizations/update-organization",
+              "api-reference/organizations/update-language",
+              "api-reference/organizations/delete-organization",
               "api-reference/organizations/get-status",
+              "api-reference/organizations/get-onboarding-progress",
               "api-reference/organizations/list-members",
               "api-reference/organizations/invite-member",
               "api-reference/organizations/remove-member",
               "api-reference/organizations/update-member-role",
-              "api-reference/organizations/list-invitations"
+              "api-reference/organizations/list-invitations",
+              "api-reference/organizations/list-teams",
+              "api-reference/organizations/create-team",
+              "api-reference/organizations/update-team",
+              "api-reference/organizations/delete-team",
+              "api-reference/organizations/add-team-member",
+              "api-reference/organizations/remove-team-member",
+              "api-reference/organizations/backfill-teams"
+            ]
+          },
+          {
+            "group": "Invitations",
+            "pages": [
+              "api-reference/invitations/get-invitation",
+              "api-reference/invitations/accept-invitation",
+              "api-reference/invitations/cancel-invitation"
+            ]
+          },
+          {
+            "group": "Member Contact Methods",
+            "pages": [
+              "api-reference/members/list-contact-methods",
+              "api-reference/members/create-contact-method",
+              "api-reference/members/update-contact-method",
+              "api-reference/members/delete-contact-method"
             ]
           },
           {
@@ -121,29 +146,98 @@
           {
             "group": "On-Call",
             "pages": [
-              "api-reference/on-call/list-teams",
-              "api-reference/on-call/create-team",
-              "api-reference/on-call/get-team",
-              "api-reference/on-call/update-team",
-              "api-reference/on-call/delete-team",
-              "api-reference/on-call/add-member",
-              "api-reference/on-call/update-member",
-              "api-reference/on-call/remove-member",
-              "api-reference/on-call/activate-member",
-              "api-reference/on-call/list-channels",
-              "api-reference/on-call/add-channel",
-              "api-reference/on-call/update-channel",
-              "api-reference/on-call/delete-channel",
-              "api-reference/on-call/list-policies",
-              "api-reference/on-call/create-policy",
-              "api-reference/on-call/get-policy",
-              "api-reference/on-call/update-policy",
-              "api-reference/on-call/delete-policy",
-              "api-reference/on-call/get-monitor-policies",
-              "api-reference/on-call/assign-policy",
-              "api-reference/on-call/toggle-policy",
-              "api-reference/on-call/unassign-policy",
-              "api-reference/on-call/list-notifications"
+              "api-reference/on-call/list-alerts",
+              "api-reference/on-call/get-alert-stats",
+              "api-reference/on-call/acknowledge-alert",
+              "api-reference/on-call/resolve-alert",
+              "api-reference/on-call/list-routes",
+              "api-reference/on-call/create-route",
+              "api-reference/on-call/delete-route",
+              "api-reference/on-call/list-schedules",
+              "api-reference/on-call/get-schedule",
+              "api-reference/on-call/update-schedule",
+              "api-reference/on-call/get-who-is-on-call",
+              "api-reference/on-call/list-schedule-overrides",
+              "api-reference/on-call/create-schedule-override",
+              "api-reference/on-call/delete-schedule-override",
+              "api-reference/on-call/list-rotations",
+              "api-reference/on-call/create-rotation",
+              "api-reference/on-call/update-rotation",
+              "api-reference/on-call/delete-rotation",
+              "api-reference/on-call/add-rotation-member",
+              "api-reference/on-call/update-rotation-member",
+              "api-reference/on-call/remove-rotation-member"
+            ]
+          },
+          {
+            "group": "Projects",
+            "pages": [
+              "api-reference/projects/list-projects",
+              "api-reference/projects/create-project",
+              "api-reference/projects/get-project",
+              "api-reference/projects/update-project",
+              "api-reference/projects/delete-project",
+              "api-reference/projects/rotate-ingestion-key",
+              "api-reference/projects/list-source-map-tokens",
+              "api-reference/projects/create-source-map-token",
+              "api-reference/projects/revoke-source-map-token"
+            ]
+          },
+          {
+            "group": "Incident Response",
+            "pages": [
+              "api-reference/response/list-incidents",
+              "api-reference/response/create-incident",
+              "api-reference/response/get-incidents-overview-stats",
+              "api-reference/response/get-incident",
+              "api-reference/response/update-incident",
+              "api-reference/response/resolve-incident",
+              "api-reference/response/close-incident",
+              "api-reference/response/assign-incident-role",
+              "api-reference/response/remove-incident-role",
+              "api-reference/response/add-incident-service",
+              "api-reference/response/remove-incident-service",
+              "api-reference/response/assign-incident-type",
+              "api-reference/response/publish-incident-status-update",
+              "api-reference/response/list-incident-actions",
+              "api-reference/response/create-incident-action",
+              "api-reference/response/update-incident-action",
+              "api-reference/response/delete-incident-action",
+              "api-reference/response/summarize-incident",
+              "api-reference/response/draft-incident-status-update",
+              "api-reference/response/list-custom-field-definitions",
+              "api-reference/response/create-custom-field-definition",
+              "api-reference/response/delete-custom-field-definition",
+              "api-reference/response/get-incident-custom-field-values",
+              "api-reference/response/set-incident-custom-field-value",
+              "api-reference/response/list-incident-escalations",
+              "api-reference/response/create-incident-escalation",
+              "api-reference/response/list-incident-types",
+              "api-reference/response/create-incident-type",
+              "api-reference/response/update-incident-type",
+              "api-reference/response/delete-incident-type",
+              "api-reference/response/create-incident-notebook",
+              "api-reference/response/get-incident-notebook",
+              "api-reference/response/list-incident-participants",
+              "api-reference/response/join-incident",
+              "api-reference/response/leave-incident",
+              "api-reference/response/list-related-incidents",
+              "api-reference/response/add-related-incident",
+              "api-reference/response/remove-related-incident",
+              "api-reference/response/list-incident-timeline",
+              "api-reference/response/add-incident-timeline-note"
+            ]
+          },
+          {
+            "group": "Notebooks",
+            "pages": [
+              "api-reference/notebooks/list-notebooks",
+              "api-reference/notebooks/create-notebook",
+              "api-reference/notebooks/draft-notebook",
+              "api-reference/notebooks/get-notebook",
+              "api-reference/notebooks/update-notebook",
+              "api-reference/notebooks/delete-notebook",
+              "api-reference/notebooks/list-notebook-templates"
             ]
           },
           {
@@ -174,8 +268,6 @@
               "api-reference/status-pages/get-monitors",
               "api-reference/status-pages/get-components",
               "api-reference/status-pages/get-monitor-aggregations",
-              "api-reference/status-pages/get-incidents",
-              "api-reference/status-pages/get-incident",
               "api-reference/status-pages/get-maintenance",
               "api-reference/status-pages/get-maintenance-event",
               "api-reference/status-pages/get-status-updates",
@@ -185,6 +277,7 @@
               "api-reference/status-pages/remove-custom-domain",
               "api-reference/status-pages/verify-custom-domain",
               "api-reference/status-pages/check-domain-verification",
+              "api-reference/status-pages/check-slug-availability",
               "api-reference/status-pages/list-status-pages",
               "api-reference/status-pages/create-status-page",
               "api-reference/status-pages/get-status-page",
@@ -201,6 +294,7 @@
               "api-reference/status-pages/list-grouped-monitors",
               "api-reference/status-pages/reorder-monitors",
               "api-reference/status-pages/move-monitor-to-group",
+              "api-reference/status-pages/update-status-page-monitor",
               "api-reference/status-pages/list-static-components",
               "api-reference/status-pages/create-static-component",
               "api-reference/status-pages/reorder-static-components",
@@ -208,14 +302,11 @@
               "api-reference/status-pages/delete-static-component",
               "api-reference/status-pages/upsert-daily-override",
               "api-reference/status-pages/get-daily-override",
-              "api-reference/status-pages/get-health-score",
-              "api-reference/status-pages/list-incidents",
-              "api-reference/status-pages/create-incident",
-              "api-reference/status-pages/get-incident-management",
-              "api-reference/status-pages/update-incident",
-              "api-reference/status-pages/delete-incident",
-              "api-reference/status-pages/resolve-incident",
-              "api-reference/status-pages/add-incident-update",
+              "api-reference/status-pages/list-status-page-updates",
+              "api-reference/status-pages/create-status-page-update",
+              "api-reference/status-pages/get-status-page-update",
+              "api-reference/status-pages/update-status-page-update",
+              "api-reference/status-pages/delete-status-page-update",
               "api-reference/status-pages/list-maintenance",
               "api-reference/status-pages/create-maintenance",
               "api-reference/status-pages/get-maintenance-management",
@@ -234,6 +325,7 @@
           {
             "group": "Subscriptions",
             "pages": [
+              "api-reference/subscriptions/list-plans",
               "api-reference/subscriptions/create-subscription",
               "api-reference/subscriptions/get-verification",
               "api-reference/subscriptions/verify-token",
