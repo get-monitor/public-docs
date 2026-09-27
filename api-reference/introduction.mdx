@@ -47,7 +47,7 @@ Each key carries scopes. An endpoint lists the scope it needs, and the request m
 | Scope | Covers |
 | --- | --- |
 | `monitors:read` / `monitors:write` | Uptime monitors, heartbeats, monitor statistics |
-| `status-pages:read` / `status-pages:write` | Status pages, components, groups, custom domains, customization, badges |
+| `status-pages:read` / `status-pages:write` | Status pages, components, groups, custom domains, customization |
 | `incidents:read` / `incidents:write` | Status page updates (incidents) and maintenance windows |
 
 Read endpoints accept the **viewer**, **member**, **admin** and **owner** roles. Write endpoints accept **member**, **admin** and **owner**, so a viewer's key is always read-only.
