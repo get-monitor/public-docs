@@ -96,7 +96,6 @@
               "api-reference/uptime/create-uptime-monitor",
               "api-reference/uptime/get-uptime-monitor",
               "api-reference/uptime/update-uptime-monitor",
-              "api-reference/uptime/delete-uptime-monitor",
               "api-reference/uptime/get-statistics",
               "api-reference/uptime/get-uptime-logs",
               "api-reference/uptime/get-status-page-uptime"
@@ -118,7 +117,6 @@
               "api-reference/heartbeats/create-heartbeat",
               "api-reference/heartbeats/get-heartbeat",
               "api-reference/heartbeats/update-heartbeat",
-              "api-reference/heartbeats/delete-heartbeat",
               "api-reference/heartbeats/regenerate-token",
               "api-reference/heartbeats/pause-heartbeat",
               "api-reference/heartbeats/unpause-heartbeat"
