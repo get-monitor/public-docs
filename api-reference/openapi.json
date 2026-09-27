@@ -2470,7 +2470,7 @@
                 },
                 "example": {
                   "message": [
-                    "type must be one of the following values: "
+                    "type must be one of the following values: email, sms, whatsapp, slack, discord, telegram, teams, webhook"
                   ],
                   "error": "Bad Request",
                   "statusCode": 400
@@ -3008,14 +3008,15 @@
                           "username": {
                             "type": "string"
                           },
-                          "password": {
-                            "type": "string"
-                          },
                           "regions": {
                             "type": "array",
                             "items": {
                               "type": "string"
                             }
+                          },
+                          "hasPassword": {
+                            "type": "boolean",
+                            "description": "Whether a basic-auth password is saved. The password itself is never returned."
                           }
                         },
                         "required": [
@@ -3032,8 +3033,8 @@
                           "body",
                           "headers",
                           "username",
-                          "password",
-                          "regions"
+                          "regions",
+                          "hasPassword"
                         ]
                       },
                       "monitorId": {
@@ -3077,9 +3078,6 @@
                       "username": {
                         "type": "string"
                       },
-                      "password": {
-                        "type": "string"
-                      },
                       "regions": {
                         "type": "array",
                         "items": {
@@ -3103,6 +3101,10 @@
                           "sa-east-1",
                           "us-east-1"
                         ]
+                      },
+                      "hasPassword": {
+                        "type": "boolean",
+                        "description": "Whether a basic-auth password is saved. The password itself is never returned."
                       }
                     },
                     "required": [
@@ -3131,9 +3133,9 @@
                       "body",
                       "headers",
                       "username",
-                      "password",
                       "regions",
-                      "regionStatuses"
+                      "regionStatuses",
+                      "hasPassword"
                     ]
                   }
                 },
@@ -3164,11 +3166,11 @@
                       "body": null,
                       "headers": [],
                       "username": "",
-                      "password": "",
                       "regions": [
                         "us-east-1",
                         "sa-east-1"
-                      ]
+                      ],
+                      "hasPassword": false
                     },
                     "monitorId": "jjclazhxotdut5z1f8u3e1c4",
                     "targetUrl": "http://mcp.getmonitor.io/health",
@@ -3183,7 +3185,6 @@
                     "body": null,
                     "headers": [],
                     "username": "",
-                    "password": "",
                     "regions": [
                       "us-east-1",
                       "sa-east-1"
@@ -3191,7 +3192,8 @@
                     "regionStatuses": {
                       "sa-east-1": "up",
                       "us-east-1": "up"
-                    }
+                    },
+                    "hasPassword": false
                   },
                   {
                     "id": "lunfl93dwzmzltee34hocddg",
@@ -3219,11 +3221,11 @@
                       "body": null,
                       "headers": [],
                       "username": "",
-                      "password": "",
                       "regions": [
                         "us-east-1",
                         "sa-east-1"
-                      ]
+                      ],
+                      "hasPassword": false
                     },
                     "monitorId": "lunfl93dwzmzltee34hocddg",
                     "targetUrl": "https://river.getmonitor.io/api/health-checks/complete",
@@ -3238,7 +3240,6 @@
                     "body": null,
                     "headers": [],
                     "username": "",
-                    "password": "",
                     "regions": [
                       "us-east-1",
                       "sa-east-1"
@@ -3246,7 +3247,8 @@
                     "regionStatuses": {
                       "sa-east-1": "up",
                       "us-east-1": "up"
-                    }
+                    },
+                    "hasPassword": false
                   }
                 ]
               }
@@ -3438,7 +3440,7 @@
                   },
                   "password": {
                     "type": "string",
-                    "description": "HTTP Basic auth password."
+                    "description": "HTTP Basic auth password. Write-only: responses never include it."
                   },
                   "regions": {
                     "type": "array",
@@ -3665,7 +3667,7 @@
                     "name must be longer than or equal to 1 characters",
                     "name must be a string",
                     "targetUrl must be a URL address",
-                    "checkType must be one of the following values: ",
+                    "checkType must be one of the following values: UPTIME, CONTENT",
                     "followRedirects must be a boolean value",
                     "each value in regions must be a string",
                     "regions must be an array"
@@ -3856,15 +3858,15 @@
                           "type": "string",
                           "nullable": true
                         },
-                        "password": {
-                          "type": "string",
-                          "nullable": true
-                        },
                         "regions": {
                           "type": "array",
                           "items": {
                             "type": "string"
                           }
+                        },
+                        "hasPassword": {
+                          "type": "boolean",
+                          "description": "Whether a basic-auth password is saved. The password itself is never returned."
                         }
                       },
                       "required": [
@@ -3881,8 +3883,8 @@
                         "body",
                         "headers",
                         "username",
-                        "password",
-                        "regions"
+                        "regions",
+                        "hasPassword"
                       ]
                     },
                     "monitorId": {
@@ -3990,10 +3992,10 @@
                     "body": null,
                     "headers": [],
                     "username": null,
-                    "password": null,
                     "regions": [
                       "us-east-1"
-                    ]
+                    ],
+                    "hasPassword": false
                   },
                   "monitorId": "ny4xotpq1ff8h9tjifqvr4b8",
                   "targetUrl": "https://example.com",
@@ -4225,7 +4227,7 @@
                   },
                   "password": {
                     "type": "string",
-                    "description": "HTTP Basic auth password."
+                    "description": "HTTP Basic auth password. Write-only: responses never include it. Omit to keep the saved password; send an empty string to remove it."
                   },
                   "regions": {
                     "type": "array",
@@ -4366,15 +4368,15 @@
                           "type": "string",
                           "nullable": true
                         },
-                        "password": {
-                          "type": "string",
-                          "nullable": true
-                        },
                         "regions": {
                           "type": "array",
                           "items": {
                             "type": "string"
                           }
+                        },
+                        "hasPassword": {
+                          "type": "boolean",
+                          "description": "Whether a basic-auth password is saved. The password itself is never returned."
                         }
                       },
                       "required": [
@@ -4391,8 +4393,8 @@
                         "body",
                         "headers",
                         "username",
-                        "password",
-                        "regions"
+                        "regions",
+                        "hasPassword"
                       ]
                     },
                     "monitorId": {
@@ -4500,10 +4502,10 @@
                     "body": null,
                     "headers": [],
                     "username": null,
-                    "password": null,
                     "regions": [
                       "us-east-1"
-                    ]
+                    ],
+                    "hasPassword": false
                   },
                   "monitorId": "ny4xotpq1ff8h9tjifqvr4b8",
                   "targetUrl": "https://example.com",
@@ -6343,15 +6345,15 @@
                           "type": "string",
                           "nullable": true
                         },
-                        "password": {
-                          "type": "string",
-                          "nullable": true
-                        },
                         "regions": {
                           "type": "array",
                           "items": {
                             "type": "string"
                           }
+                        },
+                        "hasPassword": {
+                          "type": "boolean",
+                          "description": "Whether a basic-auth password is saved. The password itself is never returned."
                         }
                       },
                       "required": [
@@ -6368,8 +6370,8 @@
                         "body",
                         "headers",
                         "username",
-                        "password",
-                        "regions"
+                        "regions",
+                        "hasPassword"
                       ]
                     },
                     "monitorId": {
@@ -6477,10 +6479,10 @@
                     "body": null,
                     "headers": [],
                     "username": null,
-                    "password": null,
                     "regions": [
                       "us-east-1"
-                    ]
+                    ],
+                    "hasPassword": false
                   },
                   "monitorId": "ny4xotpq1ff8h9tjifqvr4b8",
                   "targetUrl": "https://example.com",
@@ -15034,7 +15036,7 @@
       "delete": {
         "operationId": "remove_subscriber",
         "summary": "Remove subscriber",
-        "description": "Removes a subscriber. Also returns `204` when the subscriber does not exist.\n\n**Authentication:** User session only (the panel), with `X-Organization-Id`. API keys receive `401`.\n\nAlso served at the deprecated path `/api/v1/status-pages/{statusPageId}/subscriptions/{subscriberId}`.",
+        "description": "Removes a subscriber. Returns `404` when no subscriber with that ID is on the page.\n\n**Authentication:** User session only (the panel), with `X-Organization-Id`. API keys receive `401`.\n\nAlso served at the deprecated path `/api/v1/status-pages/{statusPageId}/subscriptions/{subscriberId}`.",
         "tags": [
           "Status Pages"
         ],
@@ -15135,6 +15137,21 @@
                   "message": "No access to this organization",
                   "error": "Forbidden",
                   "statusCode": 403
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The resource does not exist or belongs to another organization.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "example": {
+                  "message": "Subscriber not found",
+                  "error": "Not Found",
+                  "statusCode": 404
                 }
               }
             }
@@ -16352,9 +16369,9 @@
                   "message": [
                     "body should not be empty",
                     "body must be a string",
-                    "state must be one of the following values: ",
-                    "updateType must be one of the following values: ",
-                    "impact must be one of the following values: "
+                    "state must be one of the following values: draft, published",
+                    "updateType must be one of the following values: incident, maintenance, informational",
+                    "impact must be one of the following values: none, minor, major, critical"
                   ],
                   "error": "Bad Request",
                   "statusCode": 400
@@ -19400,10 +19417,11 @@
             "name": "days",
             "in": "query",
             "required": false,
-            "description": "Days of uptime history. Default 60.",
+            "description": "Days of uptime history, 1 to 90. Default 60. Values outside the range are clamped.",
             "schema": {
               "type": "integer",
               "minimum": 1,
+              "maximum": 90,
               "default": 60
             }
           }
