@@ -1,0 +1,84 @@
+---
+title: "API overview"
+description: "Base URL, authentication, scopes and errors for the GetMonitor API."
+---
+
+## Base URL
+
+All endpoints are served from:
+
+```
+https://api.getmonitor.io
+```
+
+Requests and responses use JSON unless an endpoint says otherwise.
+
+## Authentication
+
+Send an API key as a bearer token:
+
+```bash
+curl https://api.getmonitor.io/api/v1/monitors \
+  -H "Authorization: Bearer gm_pat_..." \
+  -H "X-Organization-Id: <organization id>"
+```
+
+There are two kinds of key:
+
+| Key | Prefix | Acts as | Create it in |
+| --- | --- | --- | --- |
+| Personal API key | `gm_pat_` | You, in any organization you allow it to use. It can never do more than your role in that organization. | **Account → API keys** |
+| Organization API key | `gm_api_` | One organization. | **API keys** in your organization (owners only) |
+
+Endpoints that record who created something (creating monitors, heartbeats, status pages, updates and maintenance) need a user, so organization keys receive `403` there. Use a personal key.
+
+Some endpoints are marked **session only**. They serve the GetMonitor panel and cannot be called with an API key; keys receive `401`.
+
+## Choosing the organization
+
+Endpoints that act inside an organization need the `X-Organization-Id` header. Missing it returns `400`. An organization the key cannot access returns `403`.
+
+To find your organization IDs, call [List organizations](/api-reference/organizations/list-organizations) with a personal key. It does not need the header.
+
+## Scopes and roles
+
+Each key carries scopes. An endpoint lists the scope it needs, and the request must also pass the role check:
+
+| Scope | Covers |
+| --- | --- |
+| `monitors:read` / `monitors:write` | Uptime monitors, heartbeats, monitor statistics |
+| `status-pages:read` / `status-pages:write` | Status pages, components, groups, custom domains, customization, badges |
+| `incidents:read` / `incidents:write` | Status page updates (incidents) and maintenance windows |
+
+Read endpoints accept the **viewer**, **member**, **admin** and **owner** roles. Write endpoints accept **member**, **admin** and **owner**, so a viewer's key is always read-only.
+
+## Errors
+
+Errors share one shape:
+
+```json
+{
+  "statusCode": 403,
+  "message": "No access to this organization",
+  "error": "Forbidden"
+}
+```
+
+For validation errors (`400`), `message` is a list with one entry per problem.
+
+| Status | Meaning |
+| --- | --- |
+| `400` | Invalid body or query, or missing `X-Organization-Id` |
+| `401` | Missing or invalid credentials, or a credential the endpoint does not accept |
+| `403` | No access to the organization, missing scope, insufficient role, or a plan limit reached |
+| `404` | Not found, or it belongs to another organization |
+| `409` | Conflicts with an existing resource, e.g. a status page slug already in use |
+
+## Billing headers
+
+Organization-scoped responses include the organization's billing state:
+
+| Header | Value |
+| --- | --- |
+| `X-Billing-State` | `active`, `trial` or `no-plan` |
+| `X-Trial-End` | End of the trial (ISO 8601), only while `X-Billing-State` is `trial` |

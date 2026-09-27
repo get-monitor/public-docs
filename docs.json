@@ -63,25 +63,22 @@
         "tab": "API",
         "groups": [
           {
+            "group": "Overview",
+            "pages": ["api-reference/introduction"]
+          },
+          {
             "group": "Organizations",
             "pages": [
               "api-reference/organizations/check-slug",
               "api-reference/organizations/resolve-by-slug",
-              "api-reference/organizations/create-organization",
               "api-reference/organizations/list-organizations",
               "api-reference/organizations/list-guest-access",
               "api-reference/organizations/get-user-roles",
               "api-reference/organizations/get-organization",
-              "api-reference/organizations/update-organization",
               "api-reference/organizations/update-language",
-              "api-reference/organizations/delete-organization",
               "api-reference/organizations/get-status",
               "api-reference/organizations/get-onboarding-progress",
-              "api-reference/organizations/list-members",
               "api-reference/organizations/invite-member",
-              "api-reference/organizations/remove-member",
-              "api-reference/organizations/update-member-role",
-              "api-reference/organizations/list-invitations",
               "api-reference/organizations/list-teams",
               "api-reference/organizations/create-team",
               "api-reference/organizations/update-team",
@@ -89,14 +86,6 @@
               "api-reference/organizations/add-team-member",
               "api-reference/organizations/remove-team-member",
               "api-reference/organizations/backfill-teams"
-            ]
-          },
-          {
-            "group": "Invitations",
-            "pages": [
-              "api-reference/invitations/get-invitation",
-              "api-reference/invitations/accept-invitation",
-              "api-reference/invitations/cancel-invitation"
             ]
           },
           {
