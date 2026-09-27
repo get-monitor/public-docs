@@ -144,120 +144,6 @@
             ]
           },
           {
-            "group": "On-Call",
-            "pages": [
-              "api-reference/on-call/list-alerts",
-              "api-reference/on-call/get-alert-stats",
-              "api-reference/on-call/acknowledge-alert",
-              "api-reference/on-call/resolve-alert",
-              "api-reference/on-call/list-routes",
-              "api-reference/on-call/create-route",
-              "api-reference/on-call/delete-route",
-              "api-reference/on-call/list-schedules",
-              "api-reference/on-call/get-schedule",
-              "api-reference/on-call/update-schedule",
-              "api-reference/on-call/get-who-is-on-call",
-              "api-reference/on-call/list-schedule-overrides",
-              "api-reference/on-call/create-schedule-override",
-              "api-reference/on-call/delete-schedule-override",
-              "api-reference/on-call/list-rotations",
-              "api-reference/on-call/create-rotation",
-              "api-reference/on-call/update-rotation",
-              "api-reference/on-call/delete-rotation",
-              "api-reference/on-call/add-rotation-member",
-              "api-reference/on-call/update-rotation-member",
-              "api-reference/on-call/remove-rotation-member"
-            ]
-          },
-          {
-            "group": "Projects",
-            "pages": [
-              "api-reference/projects/list-projects",
-              "api-reference/projects/create-project",
-              "api-reference/projects/get-project",
-              "api-reference/projects/update-project",
-              "api-reference/projects/delete-project",
-              "api-reference/projects/rotate-ingestion-key",
-              "api-reference/projects/list-source-map-tokens",
-              "api-reference/projects/create-source-map-token",
-              "api-reference/projects/revoke-source-map-token"
-            ]
-          },
-          {
-            "group": "Incident Response",
-            "pages": [
-              "api-reference/response/list-incidents",
-              "api-reference/response/create-incident",
-              "api-reference/response/get-incidents-overview-stats",
-              "api-reference/response/get-incident",
-              "api-reference/response/update-incident",
-              "api-reference/response/resolve-incident",
-              "api-reference/response/close-incident",
-              "api-reference/response/assign-incident-role",
-              "api-reference/response/remove-incident-role",
-              "api-reference/response/add-incident-service",
-              "api-reference/response/remove-incident-service",
-              "api-reference/response/assign-incident-type",
-              "api-reference/response/publish-incident-status-update",
-              "api-reference/response/list-incident-actions",
-              "api-reference/response/create-incident-action",
-              "api-reference/response/update-incident-action",
-              "api-reference/response/delete-incident-action",
-              "api-reference/response/summarize-incident",
-              "api-reference/response/draft-incident-status-update",
-              "api-reference/response/list-custom-field-definitions",
-              "api-reference/response/create-custom-field-definition",
-              "api-reference/response/delete-custom-field-definition",
-              "api-reference/response/get-incident-custom-field-values",
-              "api-reference/response/set-incident-custom-field-value",
-              "api-reference/response/list-incident-escalations",
-              "api-reference/response/create-incident-escalation",
-              "api-reference/response/list-incident-types",
-              "api-reference/response/create-incident-type",
-              "api-reference/response/update-incident-type",
-              "api-reference/response/delete-incident-type",
-              "api-reference/response/create-incident-notebook",
-              "api-reference/response/get-incident-notebook",
-              "api-reference/response/list-incident-participants",
-              "api-reference/response/join-incident",
-              "api-reference/response/leave-incident",
-              "api-reference/response/list-related-incidents",
-              "api-reference/response/add-related-incident",
-              "api-reference/response/remove-related-incident",
-              "api-reference/response/list-incident-timeline",
-              "api-reference/response/add-incident-timeline-note"
-            ]
-          },
-          {
-            "group": "Notebooks",
-            "pages": [
-              "api-reference/notebooks/list-notebooks",
-              "api-reference/notebooks/create-notebook",
-              "api-reference/notebooks/draft-notebook",
-              "api-reference/notebooks/get-notebook",
-              "api-reference/notebooks/update-notebook",
-              "api-reference/notebooks/delete-notebook",
-              "api-reference/notebooks/list-notebook-templates"
-            ]
-          },
-          {
-            "group": "Integrations",
-            "pages": [
-              "api-reference/integrations/list-apps",
-              "api-reference/integrations/get-app",
-              "api-reference/integrations/list-installations",
-              "api-reference/integrations/create-installation",
-              "api-reference/integrations/get-installation",
-              "api-reference/integrations/update-installation",
-              "api-reference/integrations/disable-installation",
-              "api-reference/integrations/get-installation-health",
-              "api-reference/integrations/list-destination-configs",
-              "api-reference/integrations/create-destination-config",
-              "api-reference/integrations/update-destination-config",
-              "api-reference/integrations/delete-destination-config"
-            ]
-          },
-          {
             "group": "Status Pages",
             "pages": [
               "api-reference/status-pages/resolve-status-page",
@@ -321,17 +207,6 @@
               "api-reference/status-pages/export-subscribers",
               "api-reference/status-pages/get-subscription-analytics"
             ]
-          },
-          {
-            "group": "Subscriptions",
-            "pages": [
-              "api-reference/subscriptions/list-plans",
-              "api-reference/subscriptions/create-subscription",
-              "api-reference/subscriptions/get-verification",
-              "api-reference/subscriptions/verify-token",
-              "api-reference/subscriptions/confirm-subscription",
-              "api-reference/subscriptions/unsubscribe"
-            ]
           }
         ]
       }
@@ -359,7 +234,7 @@
     "primary": {
       "type": "button",
       "label": "Dashboard",
-      "href": "https://console.getmonitor.io"
+      "href": "https://getmonitor.io/panel"
     }
   },
   "contextual": {
